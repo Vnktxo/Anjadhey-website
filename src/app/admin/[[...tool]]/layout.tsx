@@ -1,4 +1,6 @@
-// This is a new file that handles the metadata for the Sanity Studio
+// This entire layout is part of the client-side Sanity Studio application
+"use client";
+
 import { metadata, viewport } from "next-sanity/studio";
 
 export { metadata, viewport };
