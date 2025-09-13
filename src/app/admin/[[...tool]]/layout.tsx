@@ -1,8 +1,7 @@
-// This entire layout is part of the client-side Sanity Studio application
-"use client";
-
+// This layout file is a Server Component that handles metadata for the Studio.
 import { metadata, viewport } from "next-sanity/studio";
 
+// Export metadata and viewport for the page
 export { metadata, viewport };
 
 export default function StudioLayout({
@@ -10,5 +9,6 @@ export default function StudioLayout({
 }: {
   children: React.ReactNode;
 }) {
+  // This Server Component will render its Client Component children (the page.tsx)
   return <>{children}</>;
 }
