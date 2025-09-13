@@ -1,14 +1,12 @@
-// This layout file is a Server Component that handles metadata for the Studio.
-import { metadata, viewport } from "next-sanity/studio";
+"use client";
 
-// Export metadata and viewport for the page
-export { metadata, viewport };
+// This layout is part of the client-side Studio, so it must be a Client Component.
+// It simply renders the page content.
 
 export default function StudioLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
-  // This Server Component will render its Client Component children (the page.tsx)
   return <>{children}</>;
 }
