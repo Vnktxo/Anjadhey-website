@@ -1,57 +1,128 @@
 import Link from "next/link";
+import { Heart, Users, TreePine, BookOpen, ArrowRight } from "lucide-react";
 
 export default function Home() {
   return (
-    <div className="container mx-auto px-6 py-16 text-center">
-      <section
-        className="bg-cover bg-center h-[60vh] rounded-lg shadow-xl flex flex-col justify-center items-center text-white"
-        style={{
-          backgroundImage:
-            "url('https://placehold.co/1200x600/334155/ffffff?text=Anjadhey+Foundation')",
-        }}
-      >
-        <h1 className="text-4xl md:text-6xl font-extrabold mb-4 drop-shadow-md">
-          Humanity in Action. Hope in Every Hand.
-        </h1>
-        <p className="max-w-2xl text-lg md:text-xl mb-8 drop-shadow-sm">
-          At Anjadhey Foundation, we believe that compassion can change the
-          world. Together, we can restore dignity, spread kindness, and build a
-          brighter tomorrow.
-        </p>
-        <div className="flex flex-wrap justify-center gap-4">
-          <Link
-            href="/about"
-            className="bg-white text-blue-600 font-bold py-3 px-8 rounded-full hover:bg-gray-200 transition-transform transform hover:scale-105 duration-300 shadow-lg"
-          >
-            Join Us
-          </Link>
-          <Link
-            href="/donate"
-            className="bg-blue-600 text-white font-bold py-3 px-8 rounded-full hover:bg-blue-700 transition-transform transform hover:scale-105 duration-300 shadow-lg"
-          >
-            Donate Now
-          </Link>
+    <div className="bg-gradient-to-br from-accent-light via-white to-accent-light min-h-screen">
+      {/* Hero Section */}
+      <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden">
+        <div className="absolute inset-0 gradient-primary opacity-10"></div>
+        <div className="container mx-auto px-6 py-20 text-center relative z-10">
+          <div className="max-w-4xl mx-auto">
+            <h1 className="text-5xl md:text-7xl font-black mb-6 text-primary-dark leading-tight">
+              Humanity in Action.
+              <br />
+              <span className="text-primary-light">Hope in Every Hand.</span>
+            </h1>
+            <p className="text-xl md:text-2xl mb-12 text-gray-700 max-w-3xl mx-auto leading-relaxed">
+              At Anjadhey Foundation, we believe that compassion can change the world. 
+              Together, we can restore dignity, spread kindness, and build a brighter tomorrow.
+            </p>
+            <div className="flex flex-col sm:flex-row justify-center gap-6">
+              <Link
+                href="/about"
+                className="group inline-flex items-center justify-center bg-white text-primary-dark font-bold py-4 px-8 rounded-full shadow-custom hover:shadow-custom-hover transform hover:scale-105 transition-all duration-300 border-2 border-primary-dark hover:bg-primary-dark hover:text-white"
+              >
+                Join Our Mission
+                <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform duration-300" />
+              </Link>
+              <Link
+                href="/donate"
+                className="group gradient-primary text-white font-bold py-4 px-8 rounded-full shadow-custom hover:shadow-custom-hover transform hover:scale-105 transition-all duration-300"
+              >
+                <Heart className="inline mr-2 h-5 w-5 group-hover:scale-110 transition-transform duration-300" />
+                Donate Now
+              </Link>
+            </div>
+          </div>
+        </div>
+        
+        {/* Floating Elements */}
+        <div className="absolute top-20 left-10 w-20 h-20 bg-accent-warm rounded-full opacity-20 animate-bounce"></div>
+        <div className="absolute bottom-20 right-10 w-16 h-16 bg-primary-light rounded-full opacity-30 animate-pulse"></div>
+        <div className="absolute top-1/2 right-20 w-12 h-12 bg-accent-warm rounded-full opacity-25 animate-bounce delay-1000"></div>
+      </section>
+
+      {/* Mission Cards Section */}
+      <section className="py-20 bg-white">
+        <div className="container mx-auto px-6">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold text-primary-dark mb-4">
+              Our Mission
+            </h2>
+            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+              Four pillars that guide our journey towards a more compassionate world
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div className="group p-8 bg-gradient-to-br from-white to-accent-light rounded-2xl shadow-custom hover:shadow-custom-hover transition-all duration-300 border border-accent-warm/20 hover:scale-105">
+              <div className="w-16 h-16 gradient-primary rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                <Heart className="h-8 w-8 text-white" />
+              </div>
+              <h3 className="font-bold text-xl mb-3 text-primary-dark">Protect Dignity</h3>
+              <p className="text-gray-600 leading-relaxed">
+                Protecting the dignity of every human life with compassion and respect.
+              </p>
+            </div>
+
+            <div className="group p-8 bg-gradient-to-br from-white to-accent-light rounded-2xl shadow-custom hover:shadow-custom-hover transition-all duration-300 border border-accent-warm/20 hover:scale-105">
+              <div className="w-16 h-16 gradient-primary rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                <BookOpen className="h-8 w-8 text-white" />
+              </div>
+              <h3 className="font-bold text-xl mb-3 text-primary-dark">Strengthen Education</h3>
+              <p className="text-gray-600 leading-relaxed">
+                Empowering children through quality education and learning opportunities.
+              </p>
+            </div>
+
+            <div className="group p-8 bg-gradient-to-br from-white to-accent-light rounded-2xl shadow-custom hover:shadow-custom-hover transition-all duration-300 border border-accent-warm/20 hover:scale-105">
+              <div className="w-16 h-16 gradient-primary rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                <TreePine className="h-8 w-8 text-white" />
+              </div>
+              <h3 className="font-bold text-xl mb-3 text-primary-dark">Revive Environment</h3>
+              <p className="text-gray-600 leading-relaxed">
+                Reforesting and reviving our environment for future generations.
+              </p>
+            </div>
+
+            <div className="group p-8 bg-gradient-to-br from-white to-accent-light rounded-2xl shadow-custom hover:shadow-custom-hover transition-all duration-300 border border-accent-warm/20 hover:scale-105">
+              <div className="w-16 h-16 gradient-primary rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                <Users className="h-8 w-8 text-white" />
+              </div>
+              <h3 className="font-bold text-xl mb-3 text-primary-dark">Spread Awareness</h3>
+              <p className="text-gray-600 leading-relaxed">
+                Building healthier communities through awareness and education.
+              </p>
+            </div>
+          </div>
         </div>
       </section>
 
-      <section className="py-20">
-        <h2 className="text-3xl font-bold mb-8">Our Mission</h2>
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-          <div className="p-6 bg-white rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300">
-            <h3 className="font-semibold text-xl mb-2">Protect Dignity</h3>
-            <p>Protecting the dignity of every human life.</p>
-          </div>
-          <div className="p-6 bg-white rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300">
-            <h3 className="font-semibold text-xl mb-2">Strengthen Education</h3>
-            <p>Strengthening education for children in need.</p>
-          </div>
-          <div className="p-6 bg-white rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300">
-            <h3 className="font-semibold text-xl mb-2">Revive Environment</h3>
-            <p>Reforesting and reviving our environment.</p>
-          </div>
-          <div className="p-6 bg-white rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300">
-            <h3 className="font-semibold text-xl mb-2">Spread Awareness</h3>
-            <p>Spreading awareness on health & well-being.</p>
+      {/* Call to Action Section */}
+      <section className="py-20 gradient-primary text-white">
+        <div className="container mx-auto px-6 text-center">
+          <h2 className="text-4xl md:text-5xl font-bold mb-6">
+            Be Part of Something Beautiful
+          </h2>
+          <p className="text-xl md:text-2xl mb-10 max-w-3xl mx-auto opacity-90">
+            Every act of kindness creates ripples of hope. Join us in making the world 
+            a better place, one life at a time.
+          </p>
+          <div className="flex flex-col sm:flex-row justify-center gap-6">
+            <Link
+              href="/our-work"
+              className="group bg-white text-primary-dark font-bold py-4 px-8 rounded-full hover:bg-accent-light transform hover:scale-105 transition-all duration-300 inline-flex items-center justify-center"
+            >
+              See Our Impact
+              <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform duration-300" />
+            </Link>
+            <Link
+              href="/contact"
+              className="group border-2 border-white text-white font-bold py-4 px-8 rounded-full hover:bg-white hover:text-primary-dark transform hover:scale-105 transition-all duration-300 inline-flex items-center justify-center"
+            >
+              Get Involved
+            </Link>
           </div>
         </div>
       </section>

@@ -1,101 +1,77 @@
-import { Target, Globe, Heart, Users } from "lucide-react"; // Using icons for visual appeal
+import { Users, Target, Eye } from "lucide-react";
 
 export default function AboutPage() {
   return (
-    <div className="bg-white">
+    <div className="bg-gradient-to-br from-accent-light via-white to-accent-light">
       {/* Hero Section */}
-      <section
-        className="relative h-[50vh] bg-cover bg-center flex items-center justify-center text-white"
-        style={{
-          backgroundImage:
-            "url('https://placehold.co/1200x500/5a67d8/ffffff?text=Our+Story')",
-        }}
-      >
-        <div className="absolute inset-0 bg-black opacity-50"></div>
-        <div className="relative z-10 text-center px-4">
-          <h1 className="text-4xl md:text-6xl font-extrabold drop-shadow-lg">
-            About Anjadhey Foundation
+      <section className="relative py-20 text-center">
+        <div className="container mx-auto px-6 relative z-10">
+          <h1 className="text-5xl md:text-7xl font-black mb-4 text-primary-dark">
+            Who We Are
           </h1>
-          <p className="mt-4 text-lg md:text-xl max-w-3xl mx-auto drop-shadow-md">
-            Born out of the belief #ManidhamKaapom (&quot;Protect
-            Humanity&quot;)
+          <p className="text-xl md:text-2xl text-gray-700 max-w-3xl mx-auto leading-relaxed">
+            Born out of the belief #ManidhamKaapom ("Protect Humanity"),
+            Anjadhey Foundation began its journey in 2021 with a simple act of giving. 
+            Since then, our family of volunteers has grown, reaching communities across India
+            with one mission: to serve with empathy.
           </p>
         </div>
       </section>
 
-      <div className="container mx-auto px-6 py-16">
-        {/* Who We Are Section */}
-        <section className="mb-16 text-center">
-          <h2 className="text-3xl font-bold mb-4">Who We Are</h2>
-          <p className="text-lg text-gray-700 max-w-4xl mx-auto leading-relaxed">
-            Anjadhey Foundation began its journey in 2021 with a simple act of
-            giving. Since then, our family of volunteers has grown, reaching
-            schools, villages, and communities across India with one mission: to
-            serve with empathy.
-          </p>
-        </section>
+      {/* Mission & Vision Section */}
+      <section className="py-20 bg-white">
+        <div className="container mx-auto px-6">
+          <div className="grid md:grid-cols-2 gap-12 items-center">
+            
+            {/* Mission Card */}
+            <div className="group p-8 bg-gradient-to-br from-white to-accent-light rounded-2xl shadow-custom hover:shadow-custom-hover transition-all duration-300 border border-accent-warm/20">
+              <div className="w-16 h-16 gradient-primary rounded-2xl flex items-center justify-center mb-6">
+                <Target className="h-8 w-8 text-white" />
+              </div>
+              <h2 className="font-bold text-3xl mb-4 text-primary-dark">Our Mission</h2>
+              <ul className="space-y-3 text-gray-600 leading-relaxed">
+                <li className="flex items-start"><span className="text-primary-light font-bold mr-2">✓</span> Protect the dignity of human life.</li>
+                <li className="flex items-start"><span className="text-primary-light font-bold mr-2">✓</span> Strengthen education for children in need.</li>
+                <li className="flex items-start"><span className="text-primary-light font-bold mr-2">✓</span> Reforest and revive our environment.</li>
+                <li className="flex items-start"><span className="text-primary-light font-bold mr-2">✓</span> Spread awareness on health & well-being.</li>
+                <li className="flex items-start"><span className="text-primary-light font-bold mr-2">✓</span> Support underprivileged families.</li>
+              </ul>
+            </div>
 
-        {/* Our Mission Section */}
-        <section className="mb-16">
-          <h2 className="text-3xl font-bold text-center mb-8">Our Mission</h2>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <div className="p-6 bg-gray-50 rounded-lg shadow-md text-center">
-              <Heart className="mx-auto text-blue-600 mb-4 h-12 w-12" />
-              <h3 className="font-semibold text-xl mb-2">
-                Protect Human Dignity
-              </h3>
-              <p className="text-gray-600">
-                We work to protect the dignity of human life and support
-                underprivileged families and street communities.
+            {/* Vision Card */}
+            <div className="group p-8 bg-gradient-to-br from-white to-accent-light rounded-2xl shadow-custom hover:shadow-custom-hover transition-all duration-300 border border-accent-warm/20">
+               <div className="w-16 h-16 gradient-primary rounded-2xl flex items-center justify-center mb-6">
+                <Eye className="h-8 w-8 text-white" />
+              </div>
+              <h2 className="font-bold text-3xl mb-4 text-primary-dark">Our Vision</h2>
+              <p className="text-gray-600 leading-relaxed text-lg">
+                A compassionate society where dignity, diversity, and kindness guide the next generation.
+              </p>
+              <p className="text-primary-dark font-semibold italic mt-6 text-lg">
+                ~ This is our identity. This is our promise: Together, We Protect Humanity.
               </p>
             </div>
-            <div className="p-6 bg-gray-50 rounded-lg shadow-md text-center">
-              <Users className="mx-auto text-blue-600 mb-4 h-12 w-12" />
-              <h3 className="font-semibold text-xl mb-2">
-                Strengthen Education
-              </h3>
-              <p className="text-gray-600">
-                We are committed to strengthening education for children in
-                need, empowering the next generation.
-              </p>
-            </div>
-            <div className="p-6 bg-gray-50 rounded-lg shadow-md text-center">
-              <Globe className="mx-auto text-blue-600 mb-4 h-12 w-12" />
-              <h3 className="font-semibold text-xl mb-2">
-                Revive Our Environment
-              </h3>
-              <p className="text-gray-600">
-                Through tree plantation drives and awareness programs, we aim to
-                reforest and revive our planet.
-              </p>
-            </div>
+
           </div>
-        </section>
+        </div>
+      </section>
 
-        {/* Our Vision Section */}
-        <section className="mb-16 text-center bg-blue-600 text-white py-12 rounded-lg shadow-xl">
-          <Target className="mx-auto mb-4 h-12 w-12" />
-          <h2 className="text-3xl font-bold mb-4">Our Vision</h2>
-          <p className="text-xl max-w-3xl mx-auto">
-            A compassionate society where dignity, diversity, and kindness guide
-            the next generation.
-          </p>
-        </section>
-
-        {/* Next Gen Section */}
-        <section className="text-center">
-          <h2 className="text-3xl font-bold mb-4">
+       {/* Next Gen Section */}
+      <section className="py-20 gradient-primary text-white">
+        <div className="container mx-auto px-6 text-center">
+            <div className="w-20 h-20 bg-white/20 rounded-2xl flex items-center justify-center mb-6 mx-auto">
+                <Users className="h-10 w-10 text-white" />
+            </div>
+          <h2 className="text-4xl md:text-5xl font-bold mb-6">
             Building Changemakers of Tomorrow
           </h2>
-          <p className="text-lg text-gray-700 max-w-4xl mx-auto leading-relaxed">
-            At Anjadhey Foundation, we believe the future lies in the hands of
-            our youth. By engaging the next generation in volunteering,
-            environmental action, and social service, we&apos;re shaping leaders
-            who value empathy, responsibility, and inclusion. Together, We
-            Protect Humanity - today and for generations to come.
+          <p className="text-xl md:text-2xl mb-10 max-w-3xl mx-auto opacity-90">
+            At Anjadhey Foundation, we believe the future lies in the hands of our youth. 
+            By engaging the next generation in volunteering and social service, we're shaping leaders who value empathy, responsibility, and inclusion.
           </p>
-        </section>
-      </div>
+        </div>
+      </section>
     </div>
   );
 }
+
