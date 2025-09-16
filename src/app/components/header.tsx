@@ -65,7 +65,7 @@ const Header = () => {
         {/* Donate Button - Desktop */}
         <Link
           href="/donate"
-          className="hidden md:block gradient-primary text-white font-semibold px-6 py-2.5 rounded-full hover:shadow-custom-hover transform hover:scale-105 transition-all duration-300"
+          className="hidden md:block btn-primary"
         >
           Donate Now
         </Link>
@@ -125,7 +125,7 @@ const Header = () => {
             <Link
               href="/donate"
               onClick={toggleMenu}
-              className="gradient-primary text-white font-semibold py-3 px-6 rounded-full text-center hover:shadow-lg transition-all duration-300 mt-2"
+              className="btn-primary w-full justify-center mt-2"
             >
               Donate Now
             </Link>

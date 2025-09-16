@@ -19,13 +19,13 @@ export default function AboutPage() {
       </section>
 
       {/* Mission & Vision Section */}
-      <section className="py-20 bg-white">
+      <section className="section-muted">
         <div className="container mx-auto px-6">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             
             {/* Mission Card */}
-            <div className="group p-8 bg-gradient-to-br from-white to-accent-light rounded-2xl shadow-custom hover:shadow-custom-hover transition-all duration-300 border border-accent-warm/20">
-              <div className="w-16 h-16 gradient-primary rounded-2xl flex items-center justify-center mb-6">
+            <div className="card card-hover bg-gradient-to-br from-white to-accent-light">
+              <div className="w-16 h-16 bg-gradient-primary rounded-2xl flex items-center justify-center mb-6">
                 <Target className="h-8 w-8 text-white" />
               </div>
               <h2 className="font-bold text-3xl mb-4 text-primary-dark">Our Mission</h2>
@@ -39,8 +39,8 @@ export default function AboutPage() {
             </div>
 
             {/* Vision Card */}
-            <div className="group p-8 bg-gradient-to-br from-white to-accent-light rounded-2xl shadow-custom hover:shadow-custom-hover transition-all duration-300 border border-accent-warm/20">
-               <div className="w-16 h-16 gradient-primary rounded-2xl flex items-center justify-center mb-6">
+            <div className="card card-hover bg-gradient-to-br from-white to-accent-light">
+               <div className="w-16 h-16 bg-gradient-primary rounded-2xl flex items-center justify-center mb-6">
                 <Eye className="h-8 w-8 text-white" />
               </div>
               <h2 className="font-bold text-3xl mb-4 text-primary-dark">Our Vision</h2>
@@ -57,7 +57,7 @@ export default function AboutPage() {
       </section>
 
        {/* Next Gen Section */}
-      <section className="py-20 gradient-primary text-white">
+      <section className="section bg-gradient-primary text-white">
         <div className="container mx-auto px-6 text-center">
             <div className="w-20 h-20 bg-white/20 rounded-2xl flex items-center justify-center mb-6 mx-auto">
                 <Users className="h-10 w-10 text-white" />

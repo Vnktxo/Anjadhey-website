@@ -4,7 +4,7 @@ export default function DonatePage() {
   return (
     <div className="bg-gradient-to-br from-accent-light via-white to-accent-light min-h-screen">
       {/* Hero Section */}
-      <section className="gradient-primary text-white py-20 relative overflow-hidden">
+      <section className="bg-gradient-primary text-white py-20 relative overflow-hidden">
         <div className="absolute inset-0 bg-black/10"></div>
         <div className="container mx-auto px-6 text-center relative z-10">
           <div className="max-w-4xl mx-auto">
@@ -35,7 +35,7 @@ export default function DonatePage() {
           </div>
           
           <div className="grid md:grid-cols-3 gap-8">
-            <div className="group bg-white p-8 rounded-3xl shadow-custom hover:shadow-custom-hover transition-all duration-300 border border-accent-warm/20 hover:scale-105">
+            <div className="card card-hover rounded-3xl border-accent-warm/20">
               <div className="w-16 h-16 bg-gradient-to-br from-primary-light to-primary-dark rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
                 <GraduationCap className="h-8 w-8 text-white" />
               </div>
@@ -45,7 +45,7 @@ export default function DonatePage() {
               </p>
             </div>
             
-            <div className="group bg-white p-8 rounded-3xl shadow-custom hover:shadow-custom-hover transition-all duration-300 border border-accent-warm/20 hover:scale-105">
+            <div className="card card-hover rounded-3xl border-accent-warm/20">
               <div className="w-16 h-16 bg-gradient-to-br from-primary-light to-primary-dark rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
                 <Users className="h-8 w-8 text-white" />
               </div>
@@ -55,7 +55,7 @@ export default function DonatePage() {
               </p>
             </div>
             
-            <div className="group bg-white p-8 rounded-3xl shadow-custom hover:shadow-custom-hover transition-all duration-300 border border-accent-warm/20 hover:scale-105">
+            <div className="card card-hover rounded-3xl border-accent-warm/20">
               <div className="w-16 h-16 bg-gradient-to-br from-primary-light to-primary-dark rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
                 <TreePine className="h-8 w-8 text-white" />
               </div>
@@ -99,7 +99,7 @@ export default function DonatePage() {
               </p>
             </div>
             
-            <div className="gradient-accent p-6 rounded-2xl">
+            <div className="bg-gradient-to-br from-accent-light to-accent-light p-6 rounded-2xl">
               <p className="text-primary-dark font-semibold text-lg italic">
                 "Your donation isn&apos;t charity - it&apos;s an investment in humanity."
               </p>
@@ -109,7 +109,7 @@ export default function DonatePage() {
 
         {/* Call to Action */}
         <section className="text-center mt-16">
-          <div className="gradient-primary text-white p-12 rounded-3xl shadow-custom-hover relative overflow-hidden">
+          <div className="bg-gradient-primary text-white p-12 rounded-3xl shadow-custom-hover relative overflow-hidden">
             <div className="absolute inset-0 bg-black/10"></div>
             <div className="relative z-10">
               <h3 className="text-3xl font-bold mb-4">Every Rupee Matters</h3>
