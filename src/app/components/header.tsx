@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { useState } from "react";
 import { Menu, X, Heart } from "lucide-react";
 
@@ -12,15 +13,21 @@ const Header = () => {
   };
 
   return (
-    <header className="bg-white/95 backdrop-blur-sm shadow-custom w-full fixed top-0 left-0 z-50 border-b border-accent-light">
-      <div className="container mx-auto px-6 py-4 flex justify-between items-center">
+    <header className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-sm shadow-md transition-all duration-300 py-4"> {/* <-- Padding is back to py-4 */}
+  <div className="container mx-auto px-6 flex justify-between items-center">
         {/* Logo */}
         <Link
           href="/"
           className="flex items-center space-x-2 text-2xl font-bold text-primary-dark hover:text-primary-light group"
         >
-          <Heart className="h-7 w-7 text-accent-warm group-hover:scale-110 transition-transform duration-300" />
-          <span>Anjadhey</span>
+          <Image
+            src="/Anjadhey Logo.png"
+            alt="Anjadhey"
+            width={200}
+            height={100}
+            className="h-24 md:h-32 w-auto rounded-sm group-hover:scale-105 transition-transform duration-300"
+            priority
+          />
         </Link>
 
         {/* Desktop Navigation */}
