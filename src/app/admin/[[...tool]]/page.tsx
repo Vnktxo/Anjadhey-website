@@ -1,17 +1,16 @@
-// src/app/admin/[[...tool]]/page.tsx
+// This is the page that will be rendered for the /admin route.
+// It uses a dynamic import to load the Studio component only on the client-side.
+
 import dynamic from "next/dynamic";
-import React from "react";
+import { Suspense } from "react";
 
-// Load the client-only Studio loader. Turn off SSR so Next doesn't try to server-render Studio code.
-const Studio = dynamic(() => import("./studio"), {
-  ssr: false,
-  loading: () => <div style={{ padding: 24 }}>Loading admin…</div>,
-});
+// Dynamically import the Studio component with SSR turned off
+const Studio = dynamic(() => import("./studio"), { ssr: false });
 
-export default function AdminPage() {
+export default function StudioPage() {
   return (
-    <main>
+    <Suspense fallback={<div style={{ padding: 24 }}>Loading Studio…</div>}>
       <Studio />
-    </main>
+    </Suspense>
   );
 }

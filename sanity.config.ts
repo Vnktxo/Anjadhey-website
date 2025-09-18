@@ -1,11 +1,19 @@
-// src/sanity/structure.ts
-import type { StructureResolver } from "sanity/structure";
+import {defineConfig} from "sanity";
+import {visionTool} from "@sanity/vision";
+import {deskTool} from "sanity/desk";
+import {schema} from "./src/sanity/schema";
+import {structure} from "./src/sanity/structure";
+import {projectId, dataset} from "./src/sanity/env";
 
-export const structure: StructureResolver = (S) =>
-  S.list()
-    .id("root")
-    .title("Content")
-    .items([
-      S.documentTypeListItem("milestone").title("Milestones"),
-      S.documentTypeListItem("galleryImage").title("Gallery Images"),
-    ]);
+export default defineConfig({
+  name: "default",
+  title: "Anjadhey Studio",
+  projectId,
+  dataset,
+  basePath: "/admin",
+  schema,
+  plugins: [
+    deskTool({structure}),
+    visionTool(),
+  ],
+});
