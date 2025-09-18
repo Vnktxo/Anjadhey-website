@@ -134,7 +134,7 @@ const Header = () => {
             <Link
               href="/donate"
               onClick={toggleMenu}
-              className="btn-primary w-full justify-center mt-2"
+              className="bg-gradient-primary w-full justify-center mt-2"
             >
               Donate Now
             </Link>
