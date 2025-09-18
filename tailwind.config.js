@@ -1,30 +1,34 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
-    // This is the most important part. It tells Tailwind where to look for classes.
-    './src/pages/**/*.{js,ts,jsx,tsx,mdx}',
-    './src/components/**/*.{js,ts,jsx,tsx,mdx}',
-    './src/app/**/*.{js,ts,jsx,tsx,mdx}',
+    "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
+    "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
+    "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
     extend: {
       colors: {
-        'primary-dark': '#0D4C92',
-        'primary-light': '#27B2DD',
-        'accent-warm': '#FFC947',
-        'accent-light': '#FEF9E7',
+        // New "Earthy & Hopeful" palette, inspired by your logo
+        "primary-dark": "#1E4620", // Deep Forrest Green (for text and headlines)
+        "primary-light": "#2A633B", // Lighter Leaf Green (for accents)
+        "accent-warm": "#D4A017", // Sunbeam Gold (for CTAs and highlights)
+        "accent-light": "#F5F5DC", // Warm Sand (for background panels)
+        background: "#FFFEFC", // Clean Off-White (for main backgrounds)
+        foreground: "#1E4620", // Using primary-dark for text to ensure consistency
       },
       boxShadow: {
-        'custom': '0 10px 25px -5px rgba(0, 0, 0, 0.08), 0 8px 10px -6px rgba(0, 0, 0, 0.08)',
-        'custom-hover': '0 20px 30px -10px rgba(13, 76, 146, 0.25), 0 10px 15px -8px rgba(13, 76, 146, 0.2)',
+        custom:
+          "0 10px 25px -5px rgba(30, 70, 32, 0.08), 0 8px 10px -6px rgba(30, 70, 32, 0.08)",
+        "custom-hover":
+          "0 20px 30px -10px rgba(30, 70, 32, 0.25), 0 10px 15px -8px rgba(30, 70, 32, 0.2)",
       },
       backgroundImage: {
-        'gradient-primary': 'linear-gradient(to right, #0D4C92, #27B2DD)',
+        "gradient-primary": "linear-gradient(to right, #1E4620, #2A633B)",
       },
-       animation: {
-        'bounce': 'bounce 3s infinite',
-      }
+      animation: {
+        bounce: "bounce 3s infinite",
+      },
     },
   },
   plugins: [],
-}
+};

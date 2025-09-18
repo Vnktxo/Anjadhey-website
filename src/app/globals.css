@@ -1,12 +1,21 @@
+/* To change the site favicon / app icons, replace files in the public/ folder:
+   - public/favicon.ico
+   - public/apple-touch-icon.png
+   - public/android-chrome-192x192.png
+   - public/android-chrome-512x512.png
+   - public/site.webmanifest
+   Also ensure src/app/head.tsx (Next.js app router) points to the correct paths.
+*/
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 :root {
   --primary-dark: #396362;
-  --primary-light: #4B8E8D;
-  --accent-warm: #F6C89F;
-  --accent-light: #FFE7D1;
+  --primary-light: #4b8e8d;
+  --accent-warm: #f6c89f;
+  --accent-light: #ffe7d1;
   --background: #ffffff;
   --foreground: #2c3e50;
 }
@@ -14,7 +23,7 @@
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: 'Inter', Arial, sans-serif;
+  font-family: "Inter", Arial, sans-serif;
   line-height: 1.6;
 }
 
@@ -25,11 +34,11 @@ body {
 
 /* Custom gradient backgrounds */
 .gradient-primary {
-  background: linear-gradient(135deg, #396362 0%, #4B8E8D 100%);
+  background: linear-gradient(135deg, #396362 0%, #4b8e8d 100%);
 }
 
 .gradient-accent {
-  background: linear-gradient(135deg, #F6C89F 0%, #FFE7D1 100%);
+  background: linear-gradient(135deg, #f6c89f 0%, #ffe7d1 100%);
 }
 
 /* Enhanced shadow utilities */
@@ -90,6 +99,11 @@ body {
 
 @layer utilities {
   .gradient-ring {
-    background: radial-gradient(60% 60% at 50% 40%, rgba(39,178,221,0.18) 0%, rgba(13,76,146,0.12) 38%, rgba(13,76,146,0) 70%);
+    background: radial-gradient(
+      60% 60% at 50% 40%,
+      rgba(39, 178, 221, 0.18) 0%,
+      rgba(13, 76, 146, 0.12) 38%,
+      rgba(13, 76, 146, 0) 70%
+    );
   }
 }

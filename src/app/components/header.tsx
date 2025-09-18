@@ -13,8 +13,14 @@ const Header = () => {
   };
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-sm shadow-md transition-all duration-300 py-4"> {/* <-- Padding is back to py-4 */}
-  <div className="container mx-auto px-6 flex justify-between items-center">
+    // Header bar: fixed to top of viewport, full width (left/right 0), high z-index so it sits above page content.
+    // bg-white/80 gives semi-transparent white background; backdrop-blur-sm applies a slight blur to content behind it.
+    // shadow-md adds elevation; transition-all + duration-300 makes visual changes smooth.
+    // py-2 sets vertical padding (adjust to py-4 if you want a taller header).
+    <header className="fixed top-0 left-0 right-0 z-50 backdrop-blur-lg shadow-md transition-all duration-300 py-0">
+      {" "}
+      {/* <-- Padding is back to py-4 */}
+      <div className="container mx-auto px-6 flex justify-between items-center">
         {/* Logo */}
         <Link
           href="/"
@@ -70,10 +76,7 @@ const Header = () => {
         </nav>
 
         {/* Donate Button - Desktop */}
-        <Link
-          href="/donate"
-          className="hidden md:block btn-primary"
-        >
+        <Link href="/donate" className="hidden md:block btn-primary">
           Donate Now
         </Link>
 
@@ -89,7 +92,6 @@ const Header = () => {
           )}
         </button>
       </div>
-
       {/* Mobile Menu */}
       {isMenuOpen && (
         <div className="md:hidden bg-white border-t border-accent-light shadow-lg">
