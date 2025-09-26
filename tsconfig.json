@@ -18,6 +18,8 @@
         "name": "next"
       }
     ],
+    // This is the crucial part: baseUrl defines the root for paths
+    "baseUrl": ".",
     "paths": {
       "@/*": ["./src/*"]
     }

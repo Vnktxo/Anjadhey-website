@@ -10,6 +10,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@import "keen-slider/keen-slider.min.css";
 
 :root {
   --primary-dark: #396362;
