@@ -3,7 +3,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { useState } from "react";
-import { Menu, X, Heart } from "lucide-react";
+import { Menu, X } from "lucide-react";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -13,13 +13,7 @@ const Header = () => {
   };
 
   return (
-    // Header bar: fixed to top of viewport, full width (left/right 0), high z-index so it sits above page content.
-    // bg-white/80 gives semi-transparent white background; backdrop-blur-sm applies a slight blur to content behind it.
-    // shadow-md adds elevation; transition-all + duration-300 makes visual changes smooth.
-    // py-2 sets vertical padding (adjust to py-4 if you want a taller header).
     <header className="fixed top-0 left-0 right-0 z-50 backdrop-blur-lg shadow-md transition-all duration-300 py-0">
-      {" "}
-      {/* <-- Padding is back to py-4 */}
       <div className="container mx-auto px-6 flex justify-between items-center">
         {/* Logo */}
         <Link
@@ -60,6 +54,13 @@ const Header = () => {
             <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary-dark group-hover:w-full transition-all duration-300"></span>
           </Link>
           <Link
+            href="/nextgen"
+            className="text-gray-700 hover:text-primary-dark font-medium relative group transition-colors duration-300"
+          >
+            NextGen
+            <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary-dark group-hover:w-full transition-all duration-300"></span>
+          </Link>
+          <Link
             href="/gallery"
             className="text-gray-700 hover:text-primary-dark font-medium relative group transition-colors duration-300"
           >
@@ -92,6 +93,7 @@ const Header = () => {
           )}
         </button>
       </div>
+      
       {/* Mobile Menu */}
       {isMenuOpen && (
         <div className="md:hidden bg-white border-t border-accent-light shadow-lg">
@@ -118,6 +120,13 @@ const Header = () => {
               Our Work
             </Link>
             <Link
+              href="/nextgen"
+              onClick={toggleMenu}
+              className="py-3 text-gray-700 hover:text-primary-dark hover:bg-accent-light rounded-lg px-3 transition-colors duration-300"
+            >
+              NextGen
+            </Link>
+            <Link
               href="/gallery"
               onClick={toggleMenu}
               className="py-3 text-gray-700 hover:text-primary-dark hover:bg-accent-light rounded-lg px-3 transition-colors duration-300"
@@ -134,7 +143,7 @@ const Header = () => {
             <Link
               href="/donate"
               onClick={toggleMenu}
-              className="bg-gradient-primary w-full justify-center mt-2"
+              className="btn-primary w-full justify-center mt-2"
             >
               Donate Now
             </Link>

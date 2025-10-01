@@ -1,47 +1,54 @@
 import Link from "next/link";
-import { Heart, Users, TreePine, BookOpen, ArrowRight } from "lucide-react";
+import { Heart, Users, TreePine, BookOpen, ArrowRight, Sprout, Library, Cake } from "lucide-react";
+
+import HeroSlider from "./components/HeroSlider";
 import Image from "next/image";
 
 export default function Home() {
+  const keyInitiatives = [
+    {
+      icon: TreePine,
+      title: "Planting Trees",
+      description: "Reforesting our environment and creating a sustainable future for generations to come through community-driven tree plantation drives.",
+    },
+  
+    {
+      icon: Library,
+      title: "Anjadhey Library",
+      description: "Building knowledge centers and providing access to books and learning resources for underprivileged children.",
+    },
+    {
+      icon: Cake,
+      title: "Your Fest, Their Future",
+      description: "Celebrating birthdays and anniversaries by donating to children in need, turning personal milestones into moments of giving.",
+    },
+  ];
+
+  const csrPartners = [
+    { name: "Partner 1", logo: "https://placehold.co/200x80/0A5B2D/FFFFFF/png?text=Partner+1" },
+    { name: "Partner 2", logo: "https://placehold.co/200x80/0A5B2D/FFFFFF/png?text=Partner+2" },
+    { name: "Partner 3", logo: "https://placehold.co/200x80/0A5B2D/FFFFFF/png?text=Partner+3" },
+    { name: "Partner 4", logo: "https://placehold.co/200x80/0A5B2D/FFFFFF/png?text=Partner+4" },
+  ];
+
   return (
     <div className="bg-background">
-      {/* Hero Section - Updated with Background Image */}
-      <section className="section-hero flex items-center justify-center overflow-hidden">
-        {/* Background Image - NEW */}
-        <Image
-          src="/hero1.png"
-          alt="Community members holding hands"
-          layout="fill"
-          objectFit="cover"
-          className="absolute inset-0 z-0"
-          priority
-        />
+      {/* Hero Slider Section */}
+      <HeroSlider />
 
-        <div className="absolute inset-0 bg-gradient-primary opacity-40 z-0"></div>
-        <div className="absolute inset-0 gradient-ring z-0"></div>
-
-        <div className="container mx-auto px-6 py-20 text-center relative z-10">
-          <div className="max-w-4xl mx-auto glass rounded-3xl p-8 md:p-12">
-            <h1 className="heading-xl mb-4">
-              Humanity in Action.
-              <br />
-              <span className="text-accent-light">Hope in Every Hand.</span>
-            </h1>
-            <p className="subheading mb-10 max-w-3xl mx-auto">
-              At Anjadhey Foundation, we believe that compassion can change the
-              world. Together, we can restore dignity, spread kindness, and
-              build a brighter tomorrow.
+      {/* Important Message Section */}
+      <section className="py-16 bg-white">
+        <div className="container mx-auto px-6">
+          <div className="max-w-4xl mx-auto text-center">
+            <h2 className="heading-lg mb-6">Anjadhey Foundation</h2>
+            <p className="text-lg text-foreground/90 leading-relaxed">
+              We ANJADHEY Helping Hands Foundation integrated around a central vision of social change. 
+              We are unified in engaging in a diverse range of activities across various sectors. We stand 
+              for a remarkable stride in fulfilling our Sustainable Development, deeply dedicating ourselves 
+              to an inclusive and sustainable public welfare. From strong education, deep community engagement, 
+              old age, women empowerment, spirituality and sustainability etc by fostering a positive change 
+              around the world.
             </p>
-            <div className="flex flex-col sm:flex-row justify-center gap-4">
-              <Link href="/about" className="btn-outline group">
-                Join Our Mission
-                <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
-              </Link>
-              <Link href="/donate" className="btn-primary group">
-                <Heart className="inline mr-2 h-5 w-5" />
-                Donate Now
-              </Link>
-            </div>
           </div>
         </div>
       </section>
@@ -52,8 +59,7 @@ export default function Home() {
           <div className="text-center mb-16">
             <h2 className="heading-lg mb-4">Our Mission</h2>
             <p className="text-xl text-foreground/80 max-w-2xl mx-auto">
-              Four pillars that guide our journey towards a more compassionate
-              world
+              Four pillars that guide our journey towards a more compassionate world
             </p>
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -65,8 +71,7 @@ export default function Home() {
                 Protect Dignity
               </h3>
               <p className="text-foreground/90 leading-relaxed">
-                Protecting the dignity of every human life with compassion and
-                respect.
+                Protecting the dignity of every human life with compassion and respect.
               </p>
             </div>
             <div className="card card-hover bg-white">
@@ -77,8 +82,7 @@ export default function Home() {
                 Strengthen Education
               </h3>
               <p className="text-foreground/90 leading-relaxed">
-                Empowering children through quality education and learning
-                opportunities.
+                Empowering children through quality education and learning opportunities.
               </p>
             </div>
             <div className="card card-hover bg-white">
@@ -107,6 +111,61 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Key Initiatives Section */}
+      <section className="py-20 bg-white">
+        <div className="container mx-auto px-6">
+          <div className="text-center mb-16">
+            <h2 className="heading-lg mb-4">Key Initiatives</h2>
+            <p className="text-xl text-foreground/80 max-w-2xl mx-auto">
+              Focused programs driving meaningful change in our communities
+            </p>
+          </div>
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {keyInitiatives.map((initiative, index) => {
+              const Icon = initiative.icon;
+              return (
+                <div key={index} className="card card-hover bg-gradient-to-br from-white to-accent-light/30">
+                  <div className="w-16 h-16 bg-primary-dark rounded-2xl flex items-center justify-center mb-6">
+                    <Icon className="h-8 w-8 text-white" />
+                  </div>
+                  <h3 className="font-bold text-xl mb-3 text-primary-dark">
+                    {initiative.title}
+                  </h3>
+                  <p className="text-foreground/90 leading-relaxed text-sm">
+                    {initiative.description}
+                  </p>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* CSR Partners Section */}
+      <section className="py-16 bg-accent-light">
+        <div className="container mx-auto px-6">
+          <div className="text-center mb-12">
+            <h2 className="heading-lg mb-4">CSR Partners</h2>
+            <p className="text-lg text-foreground/80 mb-8">
+              We welcome and acknowledge the receipt of funds
+            </p>
+          </div>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 items-center justify-items-center">
+            {csrPartners.map((partner, index) => (
+              <div key={index} className="bg-white p-6 rounded-xl shadow-custom hover:shadow-custom-hover transition-all duration-300">
+                <Image
+                  src={partner.logo}
+                  alt={partner.name}
+                  width={200}
+                  height={80}
+                  className="w-full h-auto"
+                />
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Call to Action Section */}
       <section className="py-20 bg-gradient-primary text-white">
         <div className="container mx-auto px-6 text-center">
@@ -114,8 +173,7 @@ export default function Home() {
             Be Part of Something Beautiful
           </h2>
           <p className="text-xl md:text-2xl mb-10 max-w-3xl mx-auto opacity-90">
-            Every act of kindness creates ripples of hope. Join us in making the
-            world a better place, one life at a time.
+            Every act of kindness creates ripples of hope. Join us in making the world a better place, one life at a time.
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-6">
             <Link href="/our-work" className="btn-light group">
@@ -124,7 +182,7 @@ export default function Home() {
             </Link>
             <Link
               href="/contact"
-              className="btn-outline border-white text-white hover:bg-white/10 hover:text-primary-dark group"
+              className="btn-outline border-white text-white hover:bg-white/10 group"
             >
               Get Involved
             </Link>
