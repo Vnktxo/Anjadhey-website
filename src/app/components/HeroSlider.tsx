@@ -6,7 +6,7 @@ import { Heart, ArrowRight } from "lucide-react";
 
 export default function HeroSlider() {
   return (
-    <section className="relative min-h-[105vh] lg:min-h-[90vh] w-full overflow-hidden bg-gradient-to-b from-white via-[#2a633b]/20 to-[#2a633b]">
+    <section className="relative min-h-screen lg:min-h-[90vh] w-full overflow-hidden bg-gradient-to-b from-white via-[#2a633b]/20 to-[#2a633b]">
       {/* Top heading */}
       <div className="relative z-10 mx-auto max-w-5xl px-4 sm:px-6 pt-12 sm:pt-16 md:pt-20 text-center">
         <h1 className="text-3xl sm:text-4xl md:text-6xl font-extrabold tracking-tight text-[#2a633b]">
@@ -18,9 +18,9 @@ export default function HeroSlider() {
       </div>
 
       {/* Main content: left card – center image – right card */}
-      <div className="relative z-10 mx-auto mt-8 sm:mt-12 grid max-w-7xl grid-cols-1 gap-6 sm:gap-8 px-4 sm:px-6 lg:mt-20 lg:grid-cols-3">
+      <div className="relative z-10 mx-auto mt-8 sm:mt-12 grid max-w-7xl grid-cols-1 gap-6 sm:gap-8 px-4 sm:px-6 lg:mt-20 lg:grid-cols-3 items-center">
         {/* Left card */}
-        <div className="order-2 lg:order-1 -mt-4 sm:-mt-6 lg:-mt-20">
+        <div className="order-2 lg:order-1 transform md:-translate-y-6 lg:-translate-y-12 transition-transform">
           <div className="rounded-2xl bg-[#2a633b]/40 p-4 sm:p-6 md:p-8 text-center lg:text-left text-white backdrop-blur-md shadow-lg">
             <p className="text-base sm:text-lg md:text-xl leading-relaxed">
               At Anjadhey Foundation, we believe that compassion can change the
@@ -42,18 +42,20 @@ export default function HeroSlider() {
 
         {/* Center image */}
         <div className="order-1 flex justify-center lg:order-2">
-          <Image
-            src="/MP.png"
-            alt="Founder"
-            width={600}
-            height={800}
-            priority
-            className="h-auto w-[220px] sm:w-[280px] md:w-[400px] lg:w-[600px]"
-          />
+          <div className="w-[220px] sm:w-[280px] md:w-[400px] lg:max-w-[600px]">
+            <Image
+              src="/MPaf.png"
+              alt="Founder"
+              width={600}
+              height={800}
+              priority
+              className="h-auto w-full object-contain"
+            />
+          </div>
         </div>
 
         {/* Right card */}
-        <div className="order-3 -mt-4 sm:-mt-6 lg:-mt-20">
+        <div className="order-3 transform md:-translate-y-6 lg:-translate-y-12 transition-transform">
           <div className="rounded-2xl bg-[#2a633b]/40 p-4 sm:p-6 md:p-8 text-center lg:text-right text-white backdrop-blur-md shadow-lg">
             <p className="text-base sm:text-lg md:text-xl leading-relaxed">
               Put your compassion into action. A contribution from you today helps create tangible, lasting change.
@@ -77,3 +79,4 @@ export default function HeroSlider() {
     </section>
   );
 }
+
