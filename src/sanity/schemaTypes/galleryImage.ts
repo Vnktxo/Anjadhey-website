@@ -23,7 +23,7 @@ export default defineType({
     defineField({
       name: "category",
       title: "Category",
-      type: "reference",            // ✅ type is "reference"
+      type: "reference" as const,            // ✅ type is "reference"
       to: [{ type: "galleryCategory" }],
       description: "Select a category for this gallery image (e.g. Education Empowerment).",
       // validation: (Rule) => Rule.required(), // uncomment if mandatory
