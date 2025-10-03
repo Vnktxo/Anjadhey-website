@@ -8,10 +8,8 @@ export default function AboutPage() {
       title: "Director",
       description:
         "The social service in other word titled as “noble” because of what it seeks to accomplish. “Speak up if you want to bring change to the world” every now and then, we meet younger versions of ourselves. We Anjadhey Helping Hands Foundation drive through the dignity of human life, strong education, reforesting the world and many. We build a diversified community connections to our next generation with core values of life.",
-      quote:
-        "Firsts are always frightening. First step, first failure, first success.",
-      // Corrected to use 'imageUrl' and a clean filename
-      imageUrl: "/mayilvanan-panneerselvam.jpg",
+      quote: "Firsts are always frightening. First step, first failure, first success.",
+      imageUrl: "/Mayilvanan.jpg",
     },
     {
       name: "Nishanthi Sekar",
@@ -20,7 +18,7 @@ export default function AboutPage() {
         "Responsible running the facility, including its safety, financial, and commercial aspects.",
       quote:
         "Regardless of gender, dreams are the spark that ignites greatness. It's not about being a man or a woman; it's about being driven, passionate, and determined to achieve your goals. Genius knows no bounds, and game-changers come in all forms.",
-      imageUrl: "https://placehold.co/128x128/0A5B2D/FFFFFF/png?text=NS", // Placeholder image
+      imageUrl: "/Nishanthi-sekar.jpg",
     },
     {
       name: "Benazir Parveen",
@@ -29,7 +27,7 @@ export default function AboutPage() {
         "Owns the organizations social media strategy to align with an innovation, needs and managing the IT infrastructure by ensuring our competitive edge in the digital landscape.",
       quote:
         "Explore! The world is your oyster. Know your breath, stay afraid, state your Goal, situate an idea, your journey will conclude with an unique outcome.",
-      imageUrl: "https://placehold.co/128x128/0A5B2D/FFFFFF/png?text=BP", // Placeholder image
+      imageUrl: "/Benazir-parveen.jpg",
     },
     {
       name: "Sahitha Banu",
@@ -38,7 +36,7 @@ export default function AboutPage() {
         "Clear vision and aligning with the goals. Setting and Organizing each program, planning, ensuring regulatory compliance, controlling the budget, overall nurturing organizational culture.",
       quote:
         "Navigate your dreams. Unlock the hidden secrets within, trust the signs, overcome obstacles, and believe that every step shapes your destiny.",
-      imageUrl: "https://placehold.co/128x128/0A5B2D/FFFFFF/png?text=SB", // Placeholder image
+      imageUrl: "/Sahitha-banu.jpg",
     },
   ];
 
@@ -100,48 +98,56 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Meet Our Team Section */}
+      {/* Meet Our Team Section - UPDATED */}
       <section className="py-20 bg-accent-light">
         <div className="container mx-auto px-6">
-          <div className="text-center mb-16">
+          <div className="text-center mb-12">
             <h2 className="text-4xl md:text-5xl font-bold text-primary-dark mb-4">
               Meet Our Team
             </h2>
             <p className="text-xl text-foreground/80 max-w-2xl mx-auto">
-              The passionate individuals leading our mission to protect
-              humanity.
+              The passionate individuals leading our mission to protect humanity.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          {/* 4x1 layout: each member is full-width row with image on the left, content on the right */}
+          <div className="space-y-8">
             {teamMembers.map((member, index) => (
-              <div
+              <article
                 key={index}
-                className="bg-white rounded-2xl shadow-custom p-8 flex flex-col items-center text-center transition-all duration-300 hover:shadow-custom-hover hover:-translate-y-2"
+                className="bg-white rounded-2xl shadow-custom p-6 md:p-8 flex flex-col md:flex-row items-stretch gap-6 min-h-[480px]"
               >
-                {/* Corrected JSX to render the Image */}
-                <Image
-                  src={member.imageUrl}
-                  alt={`Profile photo of ${member.name}`}
-                  width={128}
-                  height={128}
-                  className="rounded w-28 h-38 object-cover mb-8 border-4 border-accent-light shadow-lg"
-                />
-                <div className="flex-grow">
+                {/* Photo column */}
+                <div className="flex-shrink-0 w-full md:w-1/3 flex items-center justify-center">
+                  <div className="w-40 h-40 md:w-72 md:h-80 relative rounded-xl overflow-hidden ring-1 ring-black/5 shadow-2xl">
+                    <Image
+                      src={member.imageUrl}
+                      alt={`Photo of ${member.name}`}
+                      width={176}
+                      height={176}
+                      className="object-cover w-full h-full"
+                    />
+                  </div>
+                </div>
+
+                {/* Content column */}
+                <div className="w-full md:w-2/3 flex flex-col justify-center">
                   <h3 className="text-2xl font-bold text-primary-dark">
                     {member.name}
                   </h3>
                   <p className="text-primary-light font-semibold mb-4">
                     {member.title}
                   </p>
-                  <p className="text-foreground/90 leading-relaxed mb-6">
+
+                  <p className="text-foreground/90 leading-relaxed mb-4">
                     {member.description}
                   </p>
+
+                  <blockquote className="border-l-4 border-accent-warm pl-4 italic text-foreground/80">
+                    "{member.quote}"
+                  </blockquote>
                 </div>
-                <blockquote className="border-l-4 border-accent-warm pl-4 italic text-foreground/80 text-left">
-                  "{member.quote}"
-                </blockquote>
-              </div>
+              </article>
             ))}
           </div>
         </div>

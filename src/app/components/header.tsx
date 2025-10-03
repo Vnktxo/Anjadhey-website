@@ -21,7 +21,7 @@ const Header = () => {
           className="flex items-center space-x-2 text-2xl font-bold text-primary-dark hover:text-primary-light group"
         >
           <Image
-            src="/Anjadhey Logo.png"
+            src="/Anjadhey Icon.png"
             alt="Anjadhey"
             width={200}
             height={100}

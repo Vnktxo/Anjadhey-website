@@ -4,40 +4,19 @@ import { Sparkles } from "lucide-react";
 export default function NextGenPage() {
   const nextGenLeaders = [
     {
-      name: "Leader Name 1",
-      role: "Youth Ambassador",
+      name: "Ayisha Begam",
       description: "Passionate about environmental conservation and youth empowerment.",
-      imageUrl: "https://placehold.co/300x300/0A5B2D/FFFFFF/png?text=Leader+1",
+      imageUrl: "/Ayisha-begam.jpg",
     },
     {
-      name: "Leader Name 2",
-      role: "Community Organizer",
+      name: "Sridharan",
       description: "Dedicated to building stronger community connections and social welfare.",
-      imageUrl: "https://placehold.co/300x300/0A5B2D/FFFFFF/png?text=Leader+2",
+      imageUrl: "/Sridharan.JPG",
     },
     {
-      name: "Leader Name 3",
-      role: "Education Advocate",
+      name: "Sriyugan",
       description: "Committed to providing quality education opportunities for all children.",
-      imageUrl: "https://placehold.co/300x300/0A5B2D/FFFFFF/png?text=Leader+3",
-    },
-    {
-      name: "Leader Name 4",
-      role: "Sustainability Champion",
-      description: "Leading initiatives for environmental sustainability and green practices.",
-      imageUrl: "https://placehold.co/300x300/0A5B2D/FFFFFF/png?text=Leader+4",
-    },
-    {
-      name: "Leader Name 5",
-      role: "Women Empowerment Lead",
-      description: "Advocating for women's rights and creating opportunities for empowerment.",
-      imageUrl: "https://placehold.co/300x300/0A5B2D/FFFFFF/png?text=Leader+5",
-    },
-    {
-      name: "Leader Name 6",
-      role: "Health & Wellness Coordinator",
-      description: "Promoting health awareness and wellness programs in communities.",
-      imageUrl: "https://placehold.co/300x300/0A5B2D/FFFFFF/png?text=Leader+6",
+      imageUrl: "/Sriyugan.JPG",
     },
   ];
 
@@ -61,7 +40,7 @@ export default function NextGenPage() {
 
       {/* Leaders Grid Section */}
       <section className="py-20">
-        <div className="container mx-auto px-6">
+        <div className="container mx-auto px-24">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-primary-dark mb-4">
               Meet Our NextGen Leaders
@@ -77,7 +56,7 @@ export default function NextGenPage() {
                 key={index}
                 className="card card-hover text-center group"
               >
-                <div className="relative mb-6 overflow-hidden rounded-2xl">
+                <div className="relative mb-10 overflow-hidden rounded-2xl">
                   <Image
                     src={leader.imageUrl}
                     alt={leader.name}
@@ -90,9 +69,6 @@ export default function NextGenPage() {
                 <h3 className="text-2xl font-bold text-primary-dark mb-2">
                   {leader.name}
                 </h3>
-                <p className="text-primary-light font-semibold mb-3">
-                  {leader.role}
-                </p>
                 <p className="text-foreground/80 leading-relaxed">
                   {leader.description}
                 </p>

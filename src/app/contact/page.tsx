@@ -85,7 +85,8 @@ export default function ContactPage() {
               <div>
                 <h3 className="text-lg font-semibold">Our Address</h3>
                 <p className="text-gray-600">
-                  123 Humanity Lane, Compassion City, 12345, India
+                  No: 3, Sri Balaji Nagar Main Road, Gundumedu, New Perungalathur, Chennai – 600063.
+                  Land Mark: Near Lingam Builders
                 </p>
               </div>
             </div>
@@ -96,7 +97,7 @@ export default function ContactPage() {
               <div>
                 <h3 className="text-lg font-semibold">Email Us</h3>
                 <p className="text-gray-600 hover:text-blue-600">
-                  <a href="mailto:info@anjadhey.org">info@anjadhey.org</a>
+                  <a href="mailto:drivingofmydream@gmail.com">drivingofmydream@gmail.com</a>
                 </p>
               </div>
             </div>
@@ -106,7 +107,7 @@ export default function ContactPage() {
               </div>
               <div>
                 <h3 className="text-lg font-semibold">Call Us</h3>
-                <p className="text-gray-600">+91 123 456 7890</p>
+                <p className="text-gray-600">+91-8800365370 </p>
               </div>
             </div>
           </div>

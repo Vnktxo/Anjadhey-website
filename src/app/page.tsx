@@ -3,6 +3,7 @@ import { Heart, Users, TreePine, BookOpen, ArrowRight, Sprout, Library, Cake } f
 
 import HeroSlider from "./components/HeroSlider";
 import Image from "next/image";
+import { IndianRupee } from "lucide-react";
 
 export default function Home() {
   const keyInitiatives = [
@@ -21,6 +22,11 @@ export default function Home() {
       icon: Cake,
       title: "Your Fest, Their Future",
       description: "Celebrating birthdays and anniversaries by donating to children in need, turning personal milestones into moments of giving.",
+    },
+    {
+      icon: IndianRupee,
+      title: "Crowd Fund Raising",
+      description: "A collective effort where individuals contribute small amounts online to support a shared cause, project, or initiative.",
     },
   ];
 
@@ -167,22 +173,22 @@ export default function Home() {
       </section>
 
       {/* Call to Action Section */}
-      <section className="py-20 bg-gradient-primary text-white">
+      <section className="py-20 bg-white text-primary-dark">
         <div className="container mx-auto px-6 text-center">
-          <h2 className="heading-lg mb-6 text-white">
+          <h2 className="heading-lg mb-6 text-primary-dark">
             Be Part of Something Beautiful
           </h2>
           <p className="text-xl md:text-2xl mb-10 max-w-3xl mx-auto opacity-90">
             Every act of kindness creates ripples of hope. Join us in making the world a better place, one life at a time.
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-6">
-            <Link href="/our-work" className="btn-light group">
+            <Link href="/our-work" className="btn-primary group">
               See Our Impact
               <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform duration-300" />
             </Link>
             <Link
               href="/contact"
-              className="btn-outline border-white text-white hover:bg-white/10 group"
+              className="btn-outline border-primary-dark text-primary-dark hover:bg-primary-dark/1 group"
             >
               Get Involved
             </Link>

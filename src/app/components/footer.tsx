@@ -1,6 +1,18 @@
-import { Heart, Mail, Phone, MapPin, Instagram, Facebook, Twitter, Linkedin, MessageCircle } from "lucide-react";
+import {
+  Heart,
+  Mail,
+  Phone,
+  MapPin,
+  Instagram,
+  Facebook,
+  Twitter,
+  Linkedin,
+  MessageCircle,
+  Youtube,   // ✅ import YouTube icon
+} from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
+import GradientText from "./GradientText";
 
 const Footer = () => {
   return (
@@ -11,7 +23,7 @@ const Footer = () => {
           <div className="space-y-4">
             <div className="flex items-center space-x-2">
               <Image
-                src="/Anjadhey Logo.png"
+                src="/Anjadhey Icon.png"
                 alt="Anjadhey Foundation"
                 width={150}
                 height={75}
@@ -23,7 +35,7 @@ const Footer = () => {
             </p>
             <div className="flex items-center space-x-2 text-accent-warm font-semibold">
               <Heart className="h-5 w-5" />
-              <span className="text-sm">#ManidhamKaapom</span>
+              <GradientText className="text-sm">#ManidhamKaapom</GradientText>
             </div>
           </div>
 
@@ -96,13 +108,13 @@ const Footer = () => {
             <div className="pt-4">
               <h5 className="text-sm font-semibold text-accent-warm mb-3">Follow Us</h5>
               <div className="flex space-x-3">
-                <a href="#" target="_blank" rel="noopener noreferrer" className="w-8 h-8 bg-white/10 rounded-full flex items-center justify-center hover:bg-accent-warm hover:scale-110 transition-all duration-300">
+                <a href="https://www.instagram.com/anjadheyfoundation" target="_blank" rel="noopener noreferrer" className="w-8 h-8 bg-white/10 rounded-full flex items-center justify-center hover:bg-accent-warm hover:scale-110 transition-all duration-300">
                   <Instagram className="h-4 w-4" />
                 </a>
-                <a href="#" target="_blank" rel="noopener noreferrer" className="w-8 h-8 bg-white/10 rounded-full flex items-center justify-center hover:bg-accent-warm hover:scale-110 transition-all duration-300">
+                <a href="https://www.facebook.com/share/19vCu3goBW/" target="_blank" rel="noopener noreferrer" className="w-8 h-8 bg-white/10 rounded-full flex items-center justify-center hover:bg-accent-warm hover:scale-110 transition-all duration-300">
                   <Facebook className="h-4 w-4" />
                 </a>
-                <a href="#" target="_blank" rel="noopener noreferrer" className="w-8 h-8 bg-white/10 rounded-full flex items-center justify-center hover:bg-accent-warm hover:scale-110 transition-all duration-300">
+                <a href="https://x.com/anjadhey" target="_blank" rel="noopener noreferrer" className="w-8 h-8 bg-white/10 rounded-full flex items-center justify-center hover:bg-accent-warm hover:scale-110 transition-all duration-300">
                   <Twitter className="h-4 w-4" />
                 </a>
                 <a href="#" target="_blank" rel="noopener noreferrer" className="w-8 h-8 bg-white/10 rounded-full flex items-center justify-center hover:bg-accent-warm hover:scale-110 transition-all duration-300">
@@ -110,6 +122,10 @@ const Footer = () => {
                 </a>
                 <a href="https://wa.me/918800365370" target="_blank" rel="noopener noreferrer" className="w-8 h-8 bg-white/10 rounded-full flex items-center justify-center hover:bg-accent-warm hover:scale-110 transition-all duration-300">
                   <MessageCircle className="h-4 w-4" />
+                </a>
+                {/* ✅ YouTube Link */}
+                <a href="https://youtube.com/@anjadheyfoundation" target="_blank" rel="noopener noreferrer" className="w-8 h-8 bg-white/10 rounded-full flex items-center justify-center hover:bg-accent-warm hover:scale-110 transition-all duration-300">
+                  <Youtube className="h-4 w-4" />
                 </a>
               </div>
             </div>
@@ -123,7 +139,7 @@ const Footer = () => {
               &copy; {new Date().getFullYear()} Anjadhey Foundation. All rights reserved. | Secure SSL
             </p>
             <p className="text-white/60 text-sm text-center md:text-right">
-              Made with ❤️ for humanity | #ManidhamKaapom
+              Made with ❤️ for humanity | <GradientText> #ManidhamKaapom</GradientText>
             </p>
           </div>
         </div>
@@ -132,4 +148,4 @@ const Footer = () => {
   );
 };
 
-export default Footer;  
+export default Footer;

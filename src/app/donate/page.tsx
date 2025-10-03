@@ -1,4 +1,5 @@
 import { Heart, Users, TreePine, GraduationCap } from "lucide-react";
+import GradientText from "../components/GradientText";
 
 export default function DonatePage() {
   return (
@@ -119,7 +120,7 @@ export default function DonatePage() {
               </p>
               <div className="flex items-center justify-center space-x-2 text-accent-warm">
                 <Heart className="h-6 w-6" />
-                <span className="font-semibold text-lg">#ManidhamKaapom</span>
+                <GradientText className="font-semibold text-lg">#ManidhamKaapom</GradientText>
               </div>
             </div>
           </div>
