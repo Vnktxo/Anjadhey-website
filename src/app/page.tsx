@@ -55,6 +55,11 @@ export default function Home() {
               old age, women empowerment, spirituality and sustainability etc by fostering a positive change 
               around the world.
             </p>
+
+            {/* Quote Section */}
+        <blockquote className="mt-12 text-xl italic text-primary-dark font-semibold">
+          “Firsts are always frightening, first step, first failure, first success.”
+        </blockquote>
           </div>
         </div>
       </section>
