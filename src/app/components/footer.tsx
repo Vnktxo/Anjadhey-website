@@ -13,7 +13,12 @@ import {
 import Link from "next/link";
 import Image from "next/image";
 import GradientText from "./GradientText";
+import { Caveat } from "next/font/google";
 
+const caveat = Caveat({
+  subsets: ["latin"],
+  weight: ["500"], // pick weights you want
+});
 const Footer = () => {
   return (
     <footer className="bg-gradient-primary text-white">
@@ -25,9 +30,9 @@ const Footer = () => {
               <Image
                 src="/Anjadhey Icon.png"
                 alt="Anjadhey Foundation"
-                width={150}
-                height={75}
-                className="h-16 w-auto"
+                width={200}
+                height={200}
+                className="h-32 w-auto"
               />
             </div>
             <p className="text-white/80 leading-relaxed text-sm">
@@ -35,7 +40,7 @@ const Footer = () => {
             </p>
             <div className="flex items-center space-x-2 text-accent-warm font-semibold">
               <Heart className="h-5 w-5" />
-              <GradientText className="text-sm">#ManidhamKaapom</GradientText>
+              <GradientText className={`${caveat.className} text-3xl`}>#ManidhamKaapom</GradientText>
             </div>
           </div>
 
@@ -139,7 +144,7 @@ const Footer = () => {
               &copy; {new Date().getFullYear()} Anjadhey Foundation. All rights reserved. | Secure SSL
             </p>
             <p className="text-white/60 text-sm text-center md:text-right">
-              Made with ❤️ for humanity | <GradientText> #ManidhamKaapom</GradientText>
+              Made with ❤️ for humanity | <GradientText className={`${caveat.className} text-lg`}> #ManidhamKaapom</GradientText>
             </p>
           </div>
         </div>

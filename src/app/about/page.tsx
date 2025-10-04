@@ -7,18 +7,9 @@ export default function AboutPage() {
       name: "Mayilvanan Panneerselvam",
       title: "Director",
       description:
-        "The social service in other word titled as “noble” because of what it seeks to accomplish. “Speak up if you want to bring change to the world” every now and then, we meet younger versions of ourselves. We Anjadhey Helping Hands Foundation drive through the dignity of human life, strong education, reforesting the world and many. We build a diversified community connections to our next generation with core values of life.",
-      quote: "Firsts are always frightening. First step, first failure, first success.",
+        "The social service in other word titled as “noble” because of what it seeks to accomplish. “Speak up if you want to bring change to the world” every now and then, we meet younger versions of ourselves. We Anjadhey Helping Hands Foundation drive through the dignity of human life, strong education, reforesting the world and many. We build a diversified community connections to our next generation with core values of life. Firsts are always frightening. First step, first failure, first success. ",
+      quote: "Your dream is like your dad. He never lets you down. So, investing your time, money, and effort towards your dream is never wasted.",
       imageUrl: "/Mayilvanan.jpg",
-    },
-    {
-      name: "Nishanthi Sekar",
-      title: "Chief Operating Director",
-      description:
-        "Responsible running the facility, including its safety, financial, and commercial aspects.",
-      quote:
-        "Regardless of gender, dreams are the spark that ignites greatness. It's not about being a man or a woman; it's about being driven, passionate, and determined to achieve your goals. Genius knows no bounds, and game-changers come in all forms.",
-      imageUrl: "/Nishanthi-sekar.jpg",
     },
     {
       name: "Benazir Parveen",
@@ -37,6 +28,15 @@ export default function AboutPage() {
       quote:
         "Navigate your dreams. Unlock the hidden secrets within, trust the signs, overcome obstacles, and believe that every step shapes your destiny.",
       imageUrl: "/Sahitha-banu.jpg",
+    },
+    {
+      name: "Nishanthi Sekar",
+      title: "Chief Operating Director",
+      description:
+        "Responsible running the facility, including its safety, financial, and commercial aspects.",
+      quote:
+        "Regardless of gender, dreams are the spark that ignites greatness. It's not about being a man or a woman; it's about being driven, passionate, and determined to achieve your goals. Genius knows no bounds, and game-changers come in all forms.",
+      imageUrl: "/Nishanthi-sekar.jpg",
     },
   ];
 
@@ -135,10 +135,12 @@ export default function AboutPage() {
                   <h3 className="text-2xl font-bold text-primary-dark">
                     {member.name}
                   </h3>
-                  <p className="text-primary-light font-semibold mb-4">
+                  <p className="text-primary-light font-semibold mb-0">
                     {member.title}
                   </p>
-
+                  <p className="text-sm text-primary-light mb-4">
+                    Anjadhey Helping Hands Foundation
+                  </p>
                   <p className="text-foreground/90 leading-relaxed mb-4">
                     {member.description}
                   </p>

@@ -58,7 +58,7 @@ export default function HeroSlider() {
         <div className="order-3 transform md:-translate-y-6 lg:-translate-y-12 transition-transform">
           <div className="rounded-2xl bg-[#2a633b]/40 p-4 sm:p-6 md:p-8 text-center lg:text-right text-white backdrop-blur-md shadow-lg">
             <p className="text-base sm:text-lg md:text-xl leading-relaxed">
-              Put your compassion into action. A contribution from you today helps create tangible, lasting change.
+              Put your compassion into action. A contribution from you today helps create tangible, lasting change. Together, we can bring hope to those in need and build a foundation of kindness.
             </p>
           </div>
 

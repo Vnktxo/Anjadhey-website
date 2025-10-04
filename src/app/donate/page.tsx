@@ -1,6 +1,10 @@
 import { Heart, Users, TreePine, GraduationCap } from "lucide-react";
 import GradientText from "../components/GradientText";
-
+import { Caveat } from "next/font/google";
+const caveat = Caveat({
+  subsets: ["latin"],
+  weight: ["700"], // pick weights you want
+});
 export default function DonatePage() {
   return (
     <div className="bg-gradient-to-br from-accent-light via-white to-accent-light min-h-screen">
@@ -120,7 +124,7 @@ export default function DonatePage() {
               </p>
               <div className="flex items-center justify-center space-x-2 text-accent-warm">
                 <Heart className="h-6 w-6" />
-                <GradientText className="font-semibold text-lg">#ManidhamKaapom</GradientText>
+                <GradientText className={`text-3xl ${caveat.className}`}>#ManidhamKaapom</GradientText>
               </div>
             </div>
           </div>
