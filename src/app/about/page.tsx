@@ -36,7 +36,7 @@ export default function AboutPage() {
         "Responsible running the facility, including its safety, financial, and commercial aspects.",
       quote:
         "Regardless of gender, dreams are the spark that ignites greatness. It's not about being a man or a woman; it's about being driven, passionate, and determined to achieve your goals. Genius knows no bounds, and game-changers come in all forms.",
-      imageUrl: "/Nishanthi-sekar.jpg",
+      imageUrl: "/Nishanthi-sekar1.jpg",
     },
   ];
 

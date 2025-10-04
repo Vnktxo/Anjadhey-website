@@ -4,9 +4,9 @@ import { Sparkles } from "lucide-react";
 export default function NextGenPage() {
   const nextGenLeaders = [
     {
-      name: "Ayisha Begam",
-      description: "Passionate about environmental conservation and youth empowerment.",
-      imageUrl: "/Ayisha-begam.jpg",
+      name: "Sriyugan",
+      description: "Committed to providing quality education opportunities for all children.",
+      imageUrl: "/Sriyugan.JPG",
     },
     {
       name: "Sridharan",
@@ -14,9 +14,9 @@ export default function NextGenPage() {
       imageUrl: "/Sridharan.JPG",
     },
     {
-      name: "Sriyugan",
-      description: "Committed to providing quality education opportunities for all children.",
-      imageUrl: "/Sriyugan.JPG",
+      name: "Ayisha Begam",
+      description: "Passionate about environmental conservation and youth empowerment.",
+      imageUrl: "/Ayisha-begam.jpg",
     },
     {
       name: "Afran and Hasna",
