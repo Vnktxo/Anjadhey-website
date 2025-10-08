@@ -6,7 +6,7 @@ import { Heart, ArrowRight } from "lucide-react";
 
 export default function HeroSlider() {
   return (
-    <section className="relative min-h-screen lg:min-h-[90vh] w-full overflow-hidden bg-gradient-to-b from-white via-[#2a633b]/20 to-[#2a633b]">
+    <section className="relative w-full overflow-hidden bg-gradient-to-b from-white via-[#2a633b]/20 to-[#2a633b]">
       {/* Top heading */}
       <div className="relative z-10 mx-auto max-w-5xl px-4 sm:px-6 pt-12 sm:pt-16 md:pt-20 text-center">
         <h1 className="text-3xl sm:text-4xl md:text-6xl font-extrabold tracking-tight text-[#2a633b]">

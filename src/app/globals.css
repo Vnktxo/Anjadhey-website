@@ -108,3 +108,10 @@ body {
     );
   }
 }
+/* REPLACE your old .no-scroll rule with this one */
+body.no-scroll {
+  position: fixed;
+  /* Prevent horizontal shift */
+  width: 100%; 
+  /* We will use JavaScript to set the 'top' value dynamically */
+}

@@ -74,7 +74,7 @@ export default function OurWorkPage() {
                   <p className="leading-relaxed text-lg">
                     We planned to distribute basic stationaries set for minimum 2025 students.
                   </p>
-                  <p className="mt-4 font-semibold">Budget : 10 L</p>
+                  <p className="mt-4 font-semibold py-5">Budget : 10 L</p>
                 </div>
 
                 <div className="mt-10">
@@ -123,7 +123,7 @@ export default function OurWorkPage() {
                   <p className="leading-relaxed text-lg">
                     We planned to distribute Organic Sanitary pads for minimum 2025 village teen girls.
                   </p>
-                  <p className="mt-4 font-semibold">Budget : 3 L</p>
+                  <p className="mt-4 font-semibold py-7">Budget : 3 L</p>
                 </div>
 
                 <div className="mt-10">

@@ -28,6 +28,10 @@ export default function RootLayout({
           {children}
         </main>
         <Footer />
+
+        {/* 👇 ADD THIS ONE LINE RIGHT HERE 👇 */}
+        <div id="portal-root"></div>
+        
       </body>
     </html>
   );

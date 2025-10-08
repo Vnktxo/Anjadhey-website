@@ -14,7 +14,7 @@ export default function NextGenPage() {
       imageUrl: "/Sridharan.JPG",
     },
     {
-      name: "Ayisha Begam",
+      name: "Aayisha Begam",
       description: "Passionate about environmental conservation and youth empowerment.",
       imageUrl: "/Ayisha-begam.jpg",
     },

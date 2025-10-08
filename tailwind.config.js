@@ -27,16 +27,22 @@ module.exports = {
         "gradient-primary": "linear-gradient(to right, #1E4620, #2A633B)",
       },
 
-      /* Gradient animation for animated gradient text/backgrounds */
+      /* ✨ Gradient animations for progress bar & text */
       keyframes: {
         gradient: {
           "0%": { backgroundPosition: "0% 50%" },
           "50%": { backgroundPosition: "100% 50%" },
           "100%": { backgroundPosition: "0% 50%" },
         },
+        "gradient-move": {
+          "0%": { backgroundPosition: "0% 50%" },
+          "50%": { backgroundPosition: "100% 50%" },
+          "100%": { backgroundPosition: "0% 50%" },
+        },
       },
       animation: {
-        "gradient": "gradient 8s linear infinite",
+        gradient: "gradient 8s linear infinite",
+        "gradient-move": "gradient-move 5s ease infinite", // smooth red→gold→green
         bounce: "bounce 3s infinite",
       },
     },
