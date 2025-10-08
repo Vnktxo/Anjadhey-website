@@ -19,6 +19,7 @@ const caveat = Caveat({
   subsets: ["latin"],
   weight: ["500"], // pick weights you want
 });
+
 const Footer = () => {
   return (
     <footer className="bg-gradient-primary text-white">
@@ -140,9 +141,27 @@ const Footer = () => {
         {/* Bottom Section */}
         <div className="border-t border-white/20 pt-6">
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-            <p className="text-white/60 text-sm text-center md:text-left">
-              &copy; {new Date().getFullYear()} Anjadhey Foundation. All rights reserved. | Secure SSL
-            </p>
+            {/* Left: copyright + SSL badge */}
+            <div className="flex items-center space-x-4">
+              <p className="text-white/60 text-sm text-center md:text-left">
+                &copy; {new Date().getFullYear()} Anjadhey Foundation. All rights reserved.
+              </p>
+
+              {/* SSL badge (small, non-intrusive) */}
+              <div className="flex items-center space-x-2">
+                <Image
+                  src="/secure ssl.png"
+                  alt="SSL Secured Encryption"
+                  width={56}
+                  height={56}
+                />
+                <span className="text-xs text-white/60 hidden sm:inline">
+                  Secure SSL encryption
+                </span>
+              </div>
+            </div>
+
+            {/* Right: made-with + gradient caveat tag */}
             <p className="text-white/60 text-sm text-center md:text-right">
               Made with ❤️ for humanity | <GradientText className={`${caveat.className} text-lg`}> #ManidhamKaapom</GradientText>
             </p>
