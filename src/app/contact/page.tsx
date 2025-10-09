@@ -18,14 +18,14 @@ export default function ContactPage() {
         <div className="grid md:grid-cols-2 gap-12 items-start">
           {/* Contact Form */}
           <div className="bg-white p-8 rounded-2xl shadow-lg">
-            <h2 className="text-2xl font-bold mb-6 text-primary-dark">
+            <h2 className="text-2xl font-bold mb-6 text-accent-warm">
               Send Us a Message
             </h2>
             <form action="#" method="POST" className="space-y-6">
               <div>
                 <label
                   htmlFor="name"
-                  className="block text-sm font-medium text-primary-dark"
+                  className="block text-sm font-medium text-accent-warm"
                 >
                   Full Name
                 </label>
@@ -41,7 +41,7 @@ export default function ContactPage() {
               <div>
                 <label
                   htmlFor="email"
-                  className="block text-sm font-medium text-primary-dark"
+                  className="block text-sm font-medium text-accent-warm"
                 >
                   Email Address
                 </label>
@@ -57,7 +57,7 @@ export default function ContactPage() {
               <div>
                 <label
                   htmlFor="message"
-                  className="block text-sm font-medium text-primary-dark"
+                  className="block text-sm font-medium text-accent-warm"
                 >
                   Message
                 </label>
@@ -73,7 +73,7 @@ export default function ContactPage() {
               <div>
                 <button
                   type="submit"
-                  className="w-full bg-[#ff0000] text-white font-bold py-3 px-6 rounded-lg shadow-lg hover:scale-105 hover:shadow-2xl focus:outline-none focus:ring-2 focus:ring-red-400 focus:ring-opacity-75 transition-all duration-300"
+                  className="w-full bg-accent-warm text-white font-bold py-3 px-6 rounded-lg shadow-lg hover:scale-105 hover:shadow-2xl focus:outline-none focus:ring-2 focus:ring-red-400 focus:ring-opacity-75 transition-all duration-300"
                 >
                   Submit
                 </button>

@@ -48,7 +48,7 @@ export default function Home() {
           <div className="max-w-4xl mx-auto text-center">
             <h2 className="heading-lg mb-6">Anjadhey Foundation</h2>
             <p className="text-lg text-foreground/90 leading-relaxed">
-              We ANJADHEY Helping Hands Foundation integrated around a central vision of social change. 
+              We Anjadhey Helping Hands Foundation integrated around a central vision of social change. 
               We are unified in engaging in a diverse range of activities across various sectors. We stand 
               for a remarkable stride in fulfilling our Sustainable Development, deeply dedicating ourselves 
               to an inclusive and sustainable public welfare. From strong education, deep community engagement, 

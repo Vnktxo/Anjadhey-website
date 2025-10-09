@@ -329,7 +329,7 @@ export default function VolunteersPage() {
                     <div>
                       <div className="text-sm font-medium text-gray-700 mb-2">Languages You Know</div>
                       <div className="flex flex-wrap gap-4">
-                        {["English", "Tamil", "Telugu", "Malayalam", "Kannada", "Others"].map((l) => (
+                        {["Tamil", "English", "Hindi", "Telugu", "Malayalam", "Kannada", "Others"].map((l) => (
                           <label key={l} className="inline-flex items-center gap-3 text-sm">
                             <input
                               type="checkbox"

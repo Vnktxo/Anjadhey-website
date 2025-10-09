@@ -107,7 +107,7 @@ const Header = () => {
                 aria-haspopup="true"
                 className="flex items-center text-gray-700 hover:text-primary-dark font-medium focus:outline-none transition-colors duration-300"
               >
-                Be a Part of Us
+                Get Involved in
                 <ChevronDown
                   className={`ml-1 h-4 w-4 transition-transform duration-200 ${
                     isPartDropdownOpen ? "rotate-180" : ""
@@ -201,7 +201,7 @@ const Header = () => {
                 onClick={toggleMobilePart}
                 className="w-full text-left py-3 text-gray-700 hover:text-primary-dark hover:bg-accent-light rounded-lg px-3 flex justify-between items-center transition-colors duration-300"
               >
-                Be a Part of Us
+                Get Involved in
                 <ChevronDown
                   className={`h-4 w-4 transition-transform duration-300 ${
                     isMobilePartOpen ? "rotate-180" : ""
