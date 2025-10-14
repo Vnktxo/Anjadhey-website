@@ -21,5 +21,5 @@ export const dataset = assertValue(
 export const projectId = assertValue(
   process.env.NEXT_PUBLIC_SANITY_PROJECT_ID,
   "Missing environment variable: NEXT_PUBLIC_SANITY_PROJECT_ID",
-  "sueps2qg" // ✅ fallback for safety
+  "h8ocu923" // ✅ fallback for safety
 );
