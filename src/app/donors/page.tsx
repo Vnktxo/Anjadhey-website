@@ -2,6 +2,7 @@
 "use client";
 
 import { useMemo, useState } from "react";
+import Image from "next/image";
 
 export default function DonorsPage() {
   const [form, setForm] = useState({
@@ -72,6 +73,13 @@ export default function DonorsPage() {
                     impact toward sustainability, education, and community
                     programs.
                   </p>
+                  <Image
+                    src="/dono.webp" // replace with your image filename
+                    alt="Volunteers helping the community"
+                    width={400}
+                    height={300}
+                    className="w-full rounded-3xl mt-10"
+                  />
                 </div>
               </div>
             </aside>

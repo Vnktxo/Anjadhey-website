@@ -2,6 +2,7 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
+import Image from "next/image";
 
 export default function VolunteersPage() {
   // form state
@@ -136,6 +137,14 @@ export default function VolunteersPage() {
                   <p className="mt-4 text-lg md:text-lg font-regular">
                     We Anjadhey Helping Hands Foundation creates easy volunteering opportunities for all ages, fostering a thriving ecosystem of positive change.
                   </p>
+                 {/* ✅ Added volunteer image here */}
+                  <Image
+                    src="/volun.webp" // replace with your image filename
+                    alt="Volunteers helping the community"
+                    width={400}
+                    height={300}
+                    className="w-full rounded-3xl mt-10"
+                  />                  
                 </div>
               </div>
             </aside>

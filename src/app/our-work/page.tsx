@@ -36,30 +36,24 @@ export default function OurWorkPage() {
               xmlns="http://www.w3.org/2000/svg"
               aria-hidden
             >
-              <path
-                d="M150 160 L400 160 L600 320 L800 320 L1050 160"
-                stroke="rgba(255,255,255,0.95)"
-                strokeWidth="8"
-                fill="none"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-              <path
-                d="M150 480 L400 480 L600 320"
-                stroke="rgba(255,255,255,0.95)"
-                strokeWidth="8"
-                fill="none"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-              <path
-                d="M600 320 L800 320 L1050 480"
-                stroke="rgba(255,255,255,0.95)"
-                strokeWidth="8"
-                fill="none"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
+              {/* Symmetric connectors */}
+<path
+  d="M150 160 L400 160 L600 320 L800 160 L1050 160"
+  stroke="rgba(255,255,255,0.95)"
+  strokeWidth="8"
+  fill="none"
+  strokeLinecap="round"
+  strokeLinejoin="round"
+/>
+<path
+  d="M150 480 L400 480 L600 320 L800 480 L1050 480"
+  stroke="rgba(255,255,255,0.95)"
+  strokeWidth="8"
+  fill="none"
+  strokeLinecap="round"
+  strokeLinejoin="round"
+/>
+
             </svg>
 
             {/* ---------- DESKTOP GRID (with icons) ---------- */}

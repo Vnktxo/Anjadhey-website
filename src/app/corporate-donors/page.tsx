@@ -2,6 +2,7 @@
 "use client";
 
 import { useMemo, useState } from "react";
+import Image from "next/image";
 
 export default function CorporateDonorsPage() {
   const [form, setForm] = useState({
@@ -87,6 +88,13 @@ export default function CorporateDonorsPage() {
                   <p className="mt-6 text-base md:text-lg">
                     Engaging the power of Corporate Social Responsibility (CSR) into strategic initiatives can empower communities and drive sustainable development. This approach “The price of greatness is responsibility” uses CSR to fund projects that address pressing an education need, dedicated to tackling environmental causes and access to social welfare programs, which builds a more resilient society for everyone.
                   </p>
+                  <Image
+                    src="/csr.webp" // replace with your image filename
+                    alt="Volunteers helping the community"
+                    width={400}
+                    height={300}
+                    className="w-full rounded-3xl mt-10"
+                  /> 
                 </div>
               </div>
             </aside>
