@@ -12,17 +12,17 @@ export default function DonatePage() {
   return (
     <div className="bg-gradient-to-br from-accent-light via-white to-accent-light min-h-screen">
       {/* Hero Section */}
-      <section className="bg-gradient-primary text-white py-16 md:py-20 relative overflow-hidden">
+      <section className="bg-gradient-to-b from-white via-[#2a633b]/20 to-[#2a633b] py-16 md:py-20 relative overflow-hidden">
         <div className="absolute inset-0 bg-black/10"></div>
         <div className="container mx-auto px-4 sm:px-6 text-center relative z-10">
           <div className="max-w-3xl md:max-w-4xl mx-auto">
             <Heart className="mx-auto mb-5 sm:mb-6 h-14 w-14 sm:h-16 sm:w-16 text-accent-warm animate-pulse" />
-            <h1 className="text-4xl sm:text-5xl md:text-6xl font-black mb-4 sm:mb-6 leading-tight">
+            <h1 className="text-4xl sm:text-5xl md:text-6xl font-black mb-4 sm:mb-6 leading-tight text-primary-dark">
               One Small Gift.
               <br />
               <span className="text-accent-warm">One Big Change.</span>
             </h1>
-            <p className="text-lg sm:text-xl md:text-2xl mb-8 opacity-90 leading-relaxed max-w-2xl sm:max-w-3xl mx-auto px-2">
+            <p className="text-lg sm:text-xl md:text-2xl mb-8 opacity-90 leading-relaxed max-w-2xl sm:max-w-3xl mx-auto px-2 text-foreground/80">
               Your kindness has the power to transform lives. Every contribution,
               big or small, becomes a story of hope for someone who needs it most.
             </p>

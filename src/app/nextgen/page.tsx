@@ -28,14 +28,14 @@ export default function NextGenPage() {
   return (
     <div className="bg-background text-foreground">
       {/* Hero Section */}
-      <section className="bg-gradient-primary text-white text-center py-20">
+      <section className="bg-gradient-to-b from-white via-[#2a633b]/20 to-[#2a633b] text-center py-20">
         <div className="container mx-auto px-6">
           <div className="flex items-center justify-center mb-4">
             <Sparkles className="h-12 w-12 text-accent-warm mr-4" />
             <h1 className="text-4xl md:text-6xl font-bold">NextGen Leaders</h1>
             <Sparkles className="h-12 w-12 text-accent-warm ml-4" />
           </div>
-          <p className="text-xl md:text-2xl opacity-90 max-w-3xl mx-auto">
+          <p className="text-xl md:text-2xl opacity-90 max-w-3xl mx-auto text-foreground/80">
             Empowering the next generation of changemakers who are shaping a better tomorrow
           </p>
         </div>

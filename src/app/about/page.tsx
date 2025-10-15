@@ -43,12 +43,12 @@ export default function AboutPage() {
   return (
     <div className="bg-background text-foreground">
       {/* Hero Section */}
-      <section className="bg-gradient-primary text-white text-center py-20">
+      <section className="bg-gradient-to-b from-white via-[#2a633b]/20 to-[#2a633b] text-center py-20">
         <div className="container mx-auto px-6">
           <h1 className="text-4xl md:text-6xl font-bold mb-4">
             About Anjadhey Foundation
           </h1>
-          <p className="text-xl md:text-2xl opacity-90 max-w-3xl mx-auto">
+          <p className="text-xl md:text-2xl opacity-90 max-w-3xl mx-auto text-foreground/80">
             Born from the belief to #ManidhamKaapom (Protect Humanity), we are a
             growing family of volunteers dedicated to serving with empathy.
           </p>
