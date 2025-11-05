@@ -23,6 +23,12 @@ export default function CorporateDonorsPage() {
     agree: false,
   });
 
+  // --- ADD SUBMISSION STATE ---
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submissionError, setSubmissionError] = useState<string | null>(null);
+  const [submittedSuccess, setSubmittedSuccess] = useState(false);
+  // --- END ADD ---
+
   // fields considered for progress calculation (required ones)
   const requiredFields = [
     "corporateName",
@@ -45,32 +51,95 @@ export default function CorporateDonorsPage() {
     }, 0);
   }, [form]);
 
-  const progressPercent = Math.round((filledCount / requiredFields.length) * 100);
+  const progressPercent = Math.round(
+    (filledCount / requiredFields.length) * 100
+  );
 
   function handleChange(
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
+    e: React.ChangeEvent<
+      HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
+    >
   ) {
     const { name, type } = e.target;
     if (type === "checkbox") {
-      setForm((s) => ({ ...s, [name]: (e.target as HTMLInputElement).checked }));
+      setForm((s) => ({
+        ...s,
+        [name]: (e.target as HTMLInputElement).checked,
+      }));
     } else {
       const value = e.target.value;
       setForm((s) => ({ ...s, [name]: value }));
     }
   }
 
-  function handleSubmit(e: React.FormEvent) {
+  // Helper to reset form
+  const resetForm = () => {
+    setForm({
+      corporateName: "",
+      email: "",
+      phone: "",
+      contactPerson: "",
+      address: "",
+      country: "",
+      state: "",
+      district: "",
+      pincode: "",
+      website: "",
+      industry: "",
+      supportType: "",
+      heardFrom: "",
+      comments: "",
+      agree: false,
+    });
+  };
+
+  // --- REPLACE HANDLESUBMIT ---
+  async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
-    // Replace with real submit logic later
-    alert("Corporate donor inquiry submitted (mock). Thank you!");
+    if (!form.agree) {
+      alert("Please agree to the terms before submitting.");
+      return;
+    }
+
+    setIsSubmitting(true);
+    setSubmissionError(null);
+    setSubmittedSuccess(false);
+
+    try {
+      const response = await fetch("/api/submit-form", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          formType: "corporate-donor", // This tells our API what to do
+          ...form, // Your state object is already perfectly formatted
+        }),
+      });
+
+      if (!response.ok) {
+        const data = await response.json();
+        throw new Error(data.error || "Something went wrong.");
+      }
+
+      setSubmittedSuccess(true);
+      resetForm();
+    } catch (error: any) {
+      setSubmissionError(error.message);
+    } finally {
+      setIsSubmitting(false);
+    }
   }
+  // --- END REPLACE ---
 
   return (
     <div className="min-h-screen bg-accent-light text-primary-dark">
       <div className="container mx-auto px-6 py-20">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12">
-            <h1 className="text-4xl md:text-5xl font-bold">Corporate Donor Inquiry</h1>
+            <h1 className="text-4xl md:text-5xl font-bold">
+              Corporate Donor Inquiry
+            </h1>
           </div>
 
           {/* 40 : 60 layout */}
@@ -86,7 +155,13 @@ export default function CorporateDonorsPage() {
                     “Comply’ is not a vision”
                   </p>
                   <p className="mt-6 text-base md:text-lg">
-                    Engaging the power of Corporate Social Responsibility (CSR) into strategic initiatives can empower communities and drive sustainable development. This approach “The price of greatness is responsibility” uses CSR to fund projects that address pressing an education need, dedicated to tackling environmental causes and access to social welfare programs, which builds a more resilient society for everyone.
+                    Engaging the power of Corporate Social Responsibility (CSR)
+                    into strategic initiatives can empower communities and drive
+                    sustainable development. This approach “The price of
+                    greatness is responsibility” uses CSR to fund projects that
+                    address pressing an education need, dedicated to tackling
+                    environmental causes and access to social welfare programs,
+                    which builds a more resilient society for everyone.
                   </p>
                   <Image
                     src="/csr.webp" // replace with your image filename
@@ -94,7 +169,7 @@ export default function CorporateDonorsPage() {
                     width={400}
                     height={300}
                     className="w-full rounded-3xl mt-10"
-                  /> 
+                  />
                 </div>
               </div>
             </aside>
@@ -108,7 +183,8 @@ export default function CorporateDonorsPage() {
                     Corporate Donor Inquiry
                   </h2>
                   <p className="text-sm md:text-base text-gray-600 mt-2 max-w-2xl mx-auto">
-                    Tell us how your organization would like to support. We'll reach out with tailored partnership options.
+                    Tell us how your organization would like to support. We'll
+                    reach out with tailored partnership options.
                   </p>
                 </header>
 
@@ -124,7 +200,8 @@ export default function CorporateDonorsPage() {
                       className="h-3 rounded-full transition-all duration-900 ease-out animate-gradient"
                       style={{
                         width: `${progressPercent}%`,
-                        background: "linear-gradient(90deg, #ff4d4f, #d4a017, #1E4620)",
+                        background:
+                          "linear-gradient(90deg, #ff4d4f, #d4a017, #1E4620)",
                         backgroundSize: "200% 200%",
                         boxShadow: "0 4px 12px rgba(0,0,0,0.06)",
                       }}
@@ -134,7 +211,9 @@ export default function CorporateDonorsPage() {
 
                 <form onSubmit={handleSubmit} className="space-y-6">
                   <section>
-                    <h3 className="text-lg font-medium text-gray-800 mb-4">Contact Details</h3>
+                    <h3 className="text-lg font-medium text-gray-800 mb-4">
+                      Contact Details
+                    </h3>
 
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                       <input
@@ -220,12 +299,12 @@ export default function CorporateDonorsPage() {
                         value={form.supportType}
                         onChange={handleChange}
                         className="bg-gray-50 rounded-xl px-4 py-3 border border-gray-100 
-                                    focus:outline-none focus:ring-2 focus:ring-primary-light 
-                                    md:col-span-1 hover:shadow-custom-hover transition-transform 
-                                    duration-300 hover:scale-[1.02] appearance-none md:appearance-auto 
-                                    text-sm md:text-base"
+                                       focus:outline-none focus:ring-2 focus:ring-primary-light 
+                                       md:col-span-1 hover:shadow-custom-hover transition-transform 
+                                       duration-300 hover:scale-[1.02] appearance-none md:appearance-auto 
+                                       text-sm md:text-base"
                         aria-label="Type of Support"
-                >
+                      >
                         <option value="">Type of Support *</option>
                         <option>Financial Support</option>
                         <option>Training & Capacity Building</option>
@@ -245,7 +324,9 @@ export default function CorporateDonorsPage() {
                   </section>
 
                   <section>
-                    <h3 className="text-lg font-medium text-gray-800 mb-4">Additional Information</h3>
+                    <h3 className="text-lg font-medium text-gray-800 mb-4">
+                      Additional Information
+                    </h3>
                     <textarea
                       name="heardFrom"
                       value={form.heardFrom}
@@ -271,15 +352,32 @@ export default function CorporateDonorsPage() {
                       onChange={handleChange}
                       className="h-4 w-4"
                     />
-                    <span className="text-sm">I agree to the Anjadhey terms and conditions</span>
+                    <span className="text-sm">
+                      I agree to the Anjadhey terms and conditions
+                    </span>
                   </label>
 
                   <div className="pt-4 flex flex-col items-center">
+                    {/* --- ADD THIS SECTION --- */}
+                    {submittedSuccess && (
+                      <div className="mb-4 text-center text-green-600 font-medium">
+                        Thank you! Your inquiry has been submitted.
+                      </div>
+                    )}
+                    {submissionError && (
+                      <div className="mb-4 text-center text-red-600 font-medium">
+                        Error: {submissionError}
+                      </div>
+                    )}
+                    {/* --- END OF ADDED SECTION --- */}
+
                     <button
                       type="submit"
-                      className="inline-flex items-center justify-center rounded-full bg-primary-dark text-white px-7 py-3 text-base font-medium transition-transform duration-300 hover:scale-[1.05] hover:shadow-custom-hover"
+                      disabled={isSubmitting} // <-- ADD
+                      className="inline-flex items-center justify-center rounded-full bg-primary-dark text-white px-7 py-3 text-base font-medium transition-transform duration-300 hover:scale-[1.05] hover:shadow-custom-hover disabled:opacity-50" // <-- ADD disabled
                     >
-                      Submit
+                      {isSubmitting ? "Submitting..." : "Submit"}{" "}
+                      {/* <-- UPDATE TEXT */}
                     </button>
                   </div>
                 </form>

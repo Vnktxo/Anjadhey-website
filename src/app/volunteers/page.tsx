@@ -35,6 +35,11 @@ export default function VolunteersPage() {
   // progress
   const [progress, setProgress] = useState(0);
 
+  // NEW: Submission state
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submissionError, setSubmissionError] = useState<string | null>(null);
+  const [submittedSuccess, setSubmittedSuccess] = useState(false);
+
   // helper to toggle languages
   function toggleLanguage(lang: string) {
     setLanguages((prev) =>
@@ -99,15 +104,92 @@ export default function VolunteersPage() {
     agree,
   ]);
 
+  // Helper function to clear the form
+  const resetForm = () => {
+    setFullName("");
+    setEmail("");
+    setPhone("");
+    setGender("");
+    setDob("");
+    setCountry("");
+    setStateField("");
+    setCity("");
+    setAddress("");
+    setPincode("");
+    setSameAsPermanent(false);
+    setCommCountry("");
+    setCommState("");
+    setCommCity("");
+    setCommAddress("");
+    setCommPincode("");
+    setSkills("");
+    setPrevExp("");
+    setLanguages([]);
+    setAttended(false);
+    setAgree(false);
+  };
+
   // submission (placeholder)
-  function handleSubmit(e: React.FormEvent) {
+  async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
     if (!agree) {
       alert("Please agree to the terms before submitting.");
       return;
     }
-    // replace with real submit logic
-    alert("Thanks! Registration submitted (demo).");
+
+    setIsSubmitting(true);
+    setSubmissionError(null);
+    setSubmittedSuccess(false);
+
+    // Collect all data
+    const formData = {
+      fullName,
+      email,
+      phone,
+      gender,
+      dob,
+      country,
+      stateField,
+      city,
+      address,
+      pincode,
+      commCountry,
+      commState,
+      commCity,
+      commAddress,
+      commPincode,
+      skills,
+      prevExp,
+      languages,
+      attended,
+      agree,
+    };
+
+    try {
+      const response = await fetch("/api/submit-form", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          formType: "volunteer", // This tells our API what to do
+          ...formData,
+        }),
+      });
+
+      if (!response.ok) {
+        const data = await response.json();
+        throw new Error(data.error || "Something went wrong.");
+      }
+
+      // Success!
+      setSubmittedSuccess(true);
+      resetForm(); // Clear the form
+    } catch (error: any) {
+      setSubmissionError(error.message);
+    } finally {
+      setIsSubmitting(false);
+    }
   }
 
   // common input classes: keep your hover/focus lift effect
@@ -132,19 +214,22 @@ export default function VolunteersPage() {
                     Join as a Volunteer
                   </h2>
                   <p className="mt-4 text-lg md:text-xl font-medium italic">
-                    "The best way to find yourself is to lose yourself in the service of others."
+                    "The best way to find yourself is to lose yourself in the
+                    service of others."
                   </p>
                   <p className="mt-4 text-lg md:text-lg font-regular">
-                    We Anjadhey Helping Hands Foundation creates easy volunteering opportunities for all ages, fostering a thriving ecosystem of positive change.
+                    We Anjadhey Helping Hands Foundation creates easy
+                    volunteering opportunities for all ages, fostering a
+                    thriving ecosystem of positive change.
                   </p>
-                 {/* ✅ Added volunteer image here */}
+                  {/* ✅ Added volunteer image here */}
                   <Image
                     src="/volun.webp" // replace with your image filename
                     alt="Volunteers helping the community"
                     width={400}
                     height={300}
                     className="w-full rounded-3xl mt-10"
-                  />                  
+                  />
                 </div>
               </div>
             </aside>
@@ -158,7 +243,8 @@ export default function VolunteersPage() {
                     Volunteer Registration
                   </h2>
                   <p className="text-sm md:text-base text-gray-600 mt-2 max-w-2xl mx-auto">
-                    Volunteers are the pillars of strength for Anjadhey and they play a key role in every part of our initiatives.
+                    Volunteers are the pillars of strength for Anjadhey and they
+                    play a key role in every part of our initiatives.
                   </p>
                 </header>
 
@@ -175,7 +261,12 @@ export default function VolunteersPage() {
                       aria-valuemax={100}
                       aria-valuenow={progress}
                       className="h-2 transition-all duration-700 animate-gradient-move shadow-[0_0_6px_rgba(42,99,59,0.4)]"
-                      style={{ width: `${progress}%`,backgroundImage: "linear-gradient(to right, #e63946, #d4a017, #2a633b)",backgroundSize: "200% 100%",}}
+                      style={{
+                        width: `${progress}%`,
+                        backgroundImage:
+                          "linear-gradient(to right, #e63946, #d4a017, #2a633b)",
+                        backgroundSize: "200% 100%",
+                      }}
                     />
                   </div>
                 </div>
@@ -183,7 +274,9 @@ export default function VolunteersPage() {
                 <form onSubmit={handleSubmit} className="space-y-6">
                   {/* Personal Information */}
                   <section className="space-y-4">
-                    <h3 className="text-lg font-medium text-gray-800">Personal Information</h3>
+                    <h3 className="text-lg font-medium text-gray-800">
+                      Personal Information
+                    </h3>
 
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                       <input
@@ -270,14 +363,18 @@ export default function VolunteersPage() {
 
                   {/* Communication Address */}
                   <section className="space-y-4 pt-2 border-t border-gray-100">
-                    <h3 className="text-lg font-medium text-gray-800">Communication Address</h3>
+                    <h3 className="text-lg font-medium text-gray-800">
+                      Communication Address
+                    </h3>
 
                     <label className="flex items-center space-x-3 text-sm text-gray-700">
                       <input
                         type="checkbox"
                         className="h-4 w-4"
                         checked={sameAsPermanent}
-                        onChange={(e) => setSameAsPermanent(e.target.checked)}
+                        onChange={(e) =>
+                          setSameAsPermanent(e.target.checked)
+                        }
                       />
                       <span>Same as permanent address</span>
                     </label>
@@ -318,7 +415,9 @@ export default function VolunteersPage() {
 
                   {/* Skills & Experience */}
                   <section className="space-y-4 pt-2 border-t border-gray-100">
-                    <h3 className="text-lg font-medium text-gray-800">Skills & Experience</h3>
+                    <h3 className="text-lg font-medium text-gray-800">
+                      Skills & Experience
+                    </h3>
 
                     <textarea
                       value={skills}
@@ -336,10 +435,23 @@ export default function VolunteersPage() {
                     />
 
                     <div>
-                      <div className="text-sm font-medium text-gray-700 mb-2">Languages You Know</div>
+                      <div className="text-sm font-medium text-gray-700 mb-2">
+                        Languages You Know
+                      </div>
                       <div className="flex flex-wrap gap-4">
-                        {["Tamil", "English", "Hindi", "Telugu", "Malayalam", "Kannada", "Others"].map((l) => (
-                          <label key={l} className="inline-flex items-center gap-3 text-sm">
+                        {[
+                          "Tamil",
+                          "English",
+                          "Hindi",
+                          "Telugu",
+                          "Malayalam",
+                          "Kannada",
+                          "Others",
+                        ].map((l) => (
+                          <label
+                            key={l}
+                            className="inline-flex items-center gap-3 text-sm"
+                          >
                             <input
                               type="checkbox"
                               checked={languages.includes(l)}
@@ -350,34 +462,71 @@ export default function VolunteersPage() {
                           </label>
                         ))}
                       </div>
-                      <div className="text-xs text-gray-400 mt-2">Select all languages you're comfortable speaking</div>
+                      <div className="text-xs text-gray-400 mt-2">
+                        Select all languages you're comfortable speaking
+                      </div>
                     </div>
                   </section>
 
                   {/* Final Steps */}
                   <section className="space-y-4 pt-2 border-t border-gray-100">
-                    <h3 className="text-lg font-medium text-gray-800">Final Steps</h3>
+                    <h3 className="text-lg font-medium text-gray-800">
+                      Final Steps
+                    </h3>
 
                     <label className="inline-flex items-start gap-3">
-                      <input type="checkbox" className="mt-1 h-4 w-4" checked={attended} onChange={(e) => setAttended(e.target.checked)} />
-                      <div className="text-sm">I have previously attended Anjadhey volunteer training sessions</div>
+                      <input
+                        type="checkbox"
+                        className="mt-1 h-4 w-4"
+                        checked={attended}
+                        onChange={(e) => setAttended(e.target.checked)}
+                      />
+                      <div className="text-sm">
+                        I have previously attended Anjadhey volunteer training
+                        sessions
+                      </div>
                     </label>
 
                     <label className="inline-flex items-start gap-3">
-                      <input type="checkbox" className="mt-1 h-4 w-4" checked={agree} onChange={(e) => setAgree(e.target.checked)} required />
-                      <div className="text-sm">I agree to the volunteer terms and conditions and commit to contributing meaningfully to Anjadhey's mission</div>
+                      <input
+                        type="checkbox"
+                        className="mt-1 h-4 w-4"
+                        checked={agree}
+                        onChange={(e) => setAgree(e.target.checked)}
+                        required
+                      />
+                      <div className="text-sm">
+                        I agree to the volunteer terms and conditions and commit
+                        to contributing meaningfully to Anjadhey's mission
+                      </div>
                     </label>
 
                     <div className="pt-4 flex flex-col items-center">
+                      {/* --- ADD THIS SECTION --- */}
+                      {submittedSuccess && (
+                        <div className="mb-4 text-center text-green-600 font-medium">
+                          Thank you! Your registration has been submitted
+                          successfully.
+                        </div>
+                      )}
+                      {submissionError && (
+                        <div className="mb-4 text-center text-red-600 font-medium">
+                          Error: {submissionError}
+                        </div>
+                      )}
+                      {/* --- END OF ADDED SECTION --- */}
+
                       <button
                         type="submit"
-                        className="w-full md:w-auto inline-flex items-center justify-center rounded-full bg-primary-dark text-white px-7 py-3 text-base font-medium hover:opacity-95 transition"
+                        disabled={isSubmitting} // Disable button while submitting
+                        className="w-full md:w-auto inline-flex items-center justify-center rounded-full bg-primary-dark text-white px-7 py-3 text-base font-medium hover:opacity-95 transition disabled:opacity-50"
                       >
-                        Complete Registration
+                        {isSubmitting ? "Submitting..." : "Complete Registration"}
                       </button>
 
                       <p className="text-xs text-gray-400 mt-3 text-center">
-                        By submitting, you agree to receive communication about volunteer opportunities.
+                        By submitting, you agree to receive communication about
+                        volunteer opportunities.
                       </p>
                     </div>
                   </section>

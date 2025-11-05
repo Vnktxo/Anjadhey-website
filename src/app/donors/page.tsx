@@ -4,15 +4,24 @@
 import { useMemo, useState } from "react";
 import Image from "next/image";
 
+// Initial state for the form
+const initialFormState = {
+  firstName: "",
+  lastName: "",
+  email: "",
+  phone: "",
+  queryType: "",
+  description: "",
+};
+
 export default function DonorsPage() {
-  const [form, setForm] = useState({
-    firstName: "",
-    lastName: "",
-    email: "",
-    phone: "",
-    queryType: "",
-    description: "",
-  });
+  const [form, setForm] = useState(initialFormState);
+
+  // --- ADD SUBMISSION STATE ---
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submissionError, setSubmissionError] = useState<string | null>(null);
+  const [submittedSuccess, setSubmittedSuccess] = useState(false);
+  // --- END ADD ---
 
   const requiredFields = [
     "firstName",
@@ -31,7 +40,9 @@ export default function DonorsPage() {
     }, 0);
   }, [form]);
 
-  const progressPercent = Math.round((filledCount / requiredFields.length) * 100);
+  const progressPercent = Math.round(
+    (filledCount / requiredFields.length) * 100
+  );
 
   function handleChange(
     e: React.ChangeEvent<
@@ -42,10 +53,45 @@ export default function DonorsPage() {
     setForm((s) => ({ ...s, [name]: value }));
   }
 
-  function handleSubmit(e: React.FormEvent) {
+  // Helper to reset form
+  const resetForm = () => {
+    setForm(initialFormState);
+  };
+
+  // --- REPLACE HANDLESUBMIT ---
+  async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
-    alert("Thank you — the inquiry was submitted (mock).");
+
+    setIsSubmitting(true);
+    setSubmissionError(null);
+    setSubmittedSuccess(false);
+
+    try {
+      const response = await fetch("/api/submit-form", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          formType: "donor", // This tells our API what to do
+          ...form,
+        }),
+      });
+
+      if (!response.ok) {
+        const data = await response.json();
+        throw new Error(data.error || "Something went wrong.");
+      }
+
+      setSubmittedSuccess(true);
+      resetForm();
+    } catch (error: any) {
+      setSubmissionError(error.message);
+    } finally {
+      setIsSubmitting(false);
+    }
   }
+  // --- END REPLACE ---
 
   return (
     <div className="min-h-screen bg-accent-light text-primary-dark">
@@ -184,11 +230,26 @@ export default function DonorsPage() {
                   </section>
 
                   <div className="pt-4 flex flex-col items-center">
+                    {/* --- ADD THIS SECTION --- */}
+                    {submittedSuccess && (
+                      <div className="mb-4 text-center text-green-600 font-medium">
+                        Thank you! Your inquiry has been submitted.
+                      </div>
+                    )}
+                    {submissionError && (
+                      <div className="mb-4 text-center text-red-600 font-medium">
+                        Error: {submissionError}
+                      </div>
+                    )}
+                    {/* --- END OF ADDED SECTION --- */}
+
                     <button
                       type="submit"
-                      className="inline-flex items-center justify-center rounded-full bg-primary-dark text-white px-7 py-3 text-base font-medium transition-transform duration-300 hover:scale-[1.05] hover:shadow-custom-hover"
+                      disabled={isSubmitting} // <-- ADD
+                      className="inline-flex items-center justify-center rounded-full bg-primary-dark text-white px-7 py-3 text-base font-medium transition-transform duration-300 hover:scale-[1.05] hover:shadow-custom-hover disabled:opacity-50" // <-- ADD disabled
                     >
-                      Submit
+                      {isSubmitting ? "Submitting..." : "Submit"}{" "}
+                      {/* <-- UPDATE TEXT */}
                     </button>
                   </div>
                 </form>
